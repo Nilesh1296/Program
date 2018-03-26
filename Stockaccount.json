@@ -1,0 +1,18 @@
+{
+	"stock": [
+		{
+			"date": "01022018",
+			"Shareprice": 78,
+			"noofshare": 78,
+			"time": "7.35",
+			"Name": "tcs"
+		},
+		{
+			"date": "02012018",
+			"Shareprice": 78,
+			"noofshare": 45,
+			"time": "7.40",
+			"Name": "buyt"
+		}
+	]
+}
