@@ -1,6 +1,7 @@
 /******************************************************************************
   
- *  Purpose: Determines the number of node of a binary tree
+ *  Purpose: Determines the number of possible arrangement  of a binary tree of
+ *   node n
  *
  *  @author  Nilesh singh
  *  @version 1.0

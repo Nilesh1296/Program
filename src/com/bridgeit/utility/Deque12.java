@@ -1,4 +1,4 @@
-package com.bridgeit.datastructure;
+package com.bridgeit.utility;
 
 import java.util.*;
 import java.util.ArrayList;

@@ -10,7 +10,6 @@
 
 package com.bridgeit.datastructure;
 
-import java.util.Stack;
 import com.bridgeit.utility.Utility;
 
 public class ArithmeticExpression {
@@ -18,22 +17,6 @@ public class ArithmeticExpression {
 		Utility utility = new Utility();
 		System.out.println("Enter the arithematic expression=");
 		String expression = utility.inputString();
-		char chararray[] = expression.toCharArray();
-		Stack1 stack = new Stack1();
-		for (int i = 0; i < chararray.length; i++) {
-			if (chararray[i] == '(') {
-				stack.push("(");
-			} else if (chararray[i] == ')') {
-				stack.pop();
-			}
-		}
-		boolean flag = stack.isEmpty();
-		if (flag == true) 
-		{
-			System.out.println("Arithematic Expression is Balanced.");
-		} else {
-			System.out.println("Arithematic Expression is not Balanced.");
-		}
-
+		Utility.checkArithmeticExpression(expression);
 	}
 }

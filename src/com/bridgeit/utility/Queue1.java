@@ -1,5 +1,16 @@
-package com.bridgeit.datastructure;
+/******************************************************************************
+  
+ *  Purpose: Queue implemetation of Queue
+ *  
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   08-03-2017
+ *
+ ******************************************************************************/
 
+
+
+package com.bridgeit.utility;
 
 	public class Queue1<T> {
 		int count=0;

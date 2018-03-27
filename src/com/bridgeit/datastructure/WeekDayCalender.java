@@ -11,6 +11,7 @@
 
 package com.bridgeit.datastructure;
 
+import com.bridgeit.utility.LinkList;
 import com.bridgeit.utility.Utility;
 
 public class WeekDayCalender {
@@ -29,14 +30,11 @@ public class WeekDayCalender {
 		months = utility.inputInteger();
 		Utility.leafYear(year);
 		int daycode = Utility.dayCode(year, months);
-		Utility.store(daycode,months);
+		Utility.store(daycode, months);
 		Utility.print(year, daycode, months);
 
 		System.out.println();
 
 	}
 
-	
-
-	
 }

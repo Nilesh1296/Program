@@ -19,7 +19,7 @@ public class DayofCalendar {
 		int month = Integer.parseInt(args[0]);
 		System.out.println("Enter the year which is valid ");
 		int year = Integer.parseInt(args[1]);
-		System.out.println("Enter the date between t to 31");
+		System.out.println("Enter the date between 1 to 31");
 		int date = Integer.parseInt(args[2]);
 		Utility.calendarDay(month, date, year);
 	}

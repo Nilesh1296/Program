@@ -17,10 +17,9 @@ public class Addressbook
 		while (choice1 > 0) {
             System.out.println("enter 1 to add addressbook to the file");
             System.out.println("enter 2 to delete the share from the file");
-            System.out.println("enter 3 to count number of account");
-            System.out.println("enter 4 to sell number of share");
-            System.out.println("enter 5 to buy number of share ");
-            System.out.println("enter 6 to display the json file");
+            System.out.println("enter 3 to display number of account");
+            System.out.println("enter 4 to edit number of account");
+            System.out.println("enter 5 to sort by name");
 			System.out.println("Enter the choice");
 			int choice = utility.inputInteger();
 			utility.inputString();
@@ -43,13 +42,10 @@ public class Addressbook
 				
 				Addressbookmethod.edit("Addressbook.json");
 				break;
-				//(shareToSell);
 			case 5:
 				Addressbookmethod.sortbyname("Addressbook.json");
 				break;
-			case 6 :
-				System.out.println("display the json file");
-				//display("Stockaccount.json");
+			
 			}
 
 		}

@@ -1,4 +1,17 @@
-package com.bridgeit.datastructure;
+/******************************************************************************
+  
+ *   Stack implementation using generic
+ *   
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   08-03-2017
+ *
+ ******************************************************************************/
+
+
+
+package com.bridgeit.utility;
 
 class Node8<T>
 {

@@ -1,1 +1,17 @@
-{"pulse":{"price":12.0,"name":"gujrati","weight":15.0},"wheat":{"price":78.0,"name":"bajra","weight":15.0},"rice":{"price":48.0,"name":"basmati","weight":15.0}}
+{
+	"pulse": {
+		"price": 18.0,
+		"name": "gujrati",
+		"weight": 45.0
+	},
+	"wheat": {
+		"price": 78.0,
+		"name": "sonali",
+		"weight": 14.0
+	},
+	"rice": {
+		"price": 45.0,
+		"name": "basmati",
+		"weight": 10.0
+	}
+}

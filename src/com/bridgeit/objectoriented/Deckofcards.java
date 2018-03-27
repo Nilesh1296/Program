@@ -1,6 +1,6 @@
 /******************************************************************************
   
- *  Purpose: Determines the number of node of a binary tree
+ *  Purpose: Determines the 4 cards distributed to 9 player
  *
  *  @author  Nilesh singh
  *  @version 1.0

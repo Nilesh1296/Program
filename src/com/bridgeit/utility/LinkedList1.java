@@ -1,4 +1,4 @@
-package com.bridgeit.datastructure;
+package com.bridgeit.utility;
 
 class Node
 {
@@ -102,7 +102,7 @@ public class LinkedList1
 	}
 	
 
-	boolean search(String searchWord)
+	public boolean search(String searchWord)
 	{
 		Node current = first;
 		while(current!=null)
@@ -146,6 +146,8 @@ public class LinkedList1
 	} 
 	return count;
 	}
+	
+	
 	}
 	
 	

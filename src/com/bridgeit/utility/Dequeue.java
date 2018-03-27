@@ -1,4 +1,4 @@
-package com.bridgeit.datastructure;
+package com.bridgeit.utility;
 import java.util.NoSuchElementException;
 
 	class Node10
@@ -41,7 +41,7 @@ import java.util.NoSuchElementException;
 	    }
 	}    
 
-class Dequeue
+public class Dequeue
 {
     private Node10 front, rear;
     private int size;

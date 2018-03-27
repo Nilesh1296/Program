@@ -13,32 +13,25 @@
  ******************************************************************************/
 
 package com.bridgeit.datastructure;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+
+import com.bridgeit.utility.LinkedList1;
 import com.bridgeit.utility.Utility;
 
 public class UnOrderedlist {
 	
 	public static void main(String args[]) throws IOException {
-
+		LinkedList1 linkedlistunorder = new LinkedList1();
 		Utility utility = new Utility();
-		LinkedList1 ll = new LinkedList1();
-		FileReader fileReader = new FileReader("abc.text");
-		BufferedReader bufferedReader = new BufferedReader(fileReader);
-		String line = bufferedReader.readLine();
-		String array[] = line.split(" ");
+		String sentence = Utility.fileReader();
+		String line = sentence.trim();
+		String array[] = line.split("\\s+");
 		for (int i = 0; i < array.length; i++) {
-			ll.add(array[i]);
+			linkedlistunorder.add(array[i]);
 		}
 		System.out.println("Enter the searchword to be found");
 		String searchWord = utility.inputString();
-		boolean status = ll.search(searchWord);
-		LinkedList1 l3 = new LinkedList1();
-		l3=Utility.addRemove(status, searchWord, ll);
+		Utility.fileWriter(searchWord, linkedlistunorder, line);
 		
-		l3.display();
-	    Utility.readFile(l3, searchWord, status, line);
-		bufferedReader.close();
 	}
 }

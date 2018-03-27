@@ -1,4 +1,4 @@
-package com.bridgeit.datastructure;
+package com.bridgeit.utility;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -188,7 +188,7 @@ public class LinkedListviasort
 				System.out.println("String : "+string);
 				bufferedWriter.write(string);
 				bufferedWriter.flush();
-				
+				bufferedWriter.close();
 	           
 			} catch (IOException e) {
 				e.printStackTrace();

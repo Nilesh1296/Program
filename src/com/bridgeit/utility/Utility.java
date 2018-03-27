@@ -8,8 +8,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -20,10 +23,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
-import com.bridgeit.datastructure.Deque12;
-import com.bridgeit.datastructure.LinkList;
-import com.bridgeit.datastructure.LinkedList1;
-import com.bridgeit.datastructure.LinkedListviasort;
+import org.json.simple.parser.ParseException;
 
 public class Utility {
 	static Scanner scanner;
@@ -636,8 +636,7 @@ public class Utility {
 		for (j = 0; j < n; j++)
 			subset[low + j] = Temp[j];
 	}
-	
-	
+
 	public static void mergeSortString(String[] elements, int low, int high) {
 
 		if (low < high) {
@@ -648,7 +647,6 @@ public class Utility {
 		}
 	}
 
-	
 	public static void mergeString(String[] elements, int low, int mid, int high) {
 
 		int n = high - low + 1;
@@ -662,7 +660,7 @@ public class Utility {
 				Temp[k++] = elements[j++];
 			else if (j > high)
 				Temp[k++] = elements[i++];
-			else if(elements[i].compareTo(elements[j])<0)
+			else if (elements[i].compareTo(elements[j]) < 0)
 				Temp[k++] = elements[i++];
 			else
 				Temp[k++] = elements[j++];
@@ -671,6 +669,7 @@ public class Utility {
 		for (j = 0; j < n; j++)
 			elements[low + j] = Temp[j];
 	}
+
 	public static void insertion(String[] stringArray) {
 		int i, j;
 		String key;
@@ -857,7 +856,7 @@ public class Utility {
 	}
 
 	public static void monthlyPayment(double principal, double year, double rate) {
-		double interestRate = rate  / (12*100);
+		double interestRate = rate / (12 * 100);
 		System.out.println(interestRate);
 		double c = 1 + interestRate;
 		System.out.println(c);
@@ -936,14 +935,14 @@ public class Utility {
 		if (count > 0) {
 			System.out.println("number of note:" + count);
 		}
-		System.out.println("The number of 1000 rupees notes is "+count1000);
-		System.out.println("The number of 500 rupees notes is "+count500);
-		System.out.println("The number of 100 rupees notes is "+count100);
-		System.out.println("the number of 50rupees notes is" +count50);
-		System.out.println("The number of 10 rupees notes is "+count10);
-		System.out.println("THE number of 5 rupees notes is "+count5);
-		System.out.println("The number of 2 rupees notes is "+count2);
-		System.out.println("The number of 1 rupees notes is "+count1);
+		System.out.println("The number of 1000 rupees notes is " + count1000);
+		System.out.println("The number of 500 rupees notes is " + count500);
+		System.out.println("The number of 100 rupees notes is " + count100);
+		System.out.println("the number of 50rupees notes is" + count50);
+		System.out.println("The number of 10 rupees notes is " + count10);
+		System.out.println("THE number of 5 rupees notes is " + count5);
+		System.out.println("The number of 2 rupees notes is " + count2);
+		System.out.println("The number of 1 rupees notes is " + count1);
 	}
 
 	public static void binarySearchInteger(int[] arr, int search, int size) {
@@ -1169,12 +1168,14 @@ public class Utility {
 		return list;
 
 	}
-	public static LinkedList1 addRemove2(boolean status, String searchWord, LinkedList1 ll2,String line) throws IOException {
+
+	public static LinkedList1 addRemove2(boolean status, String searchWord, LinkedList1 ll2, String line)
+			throws IOException {
 		FileWriter writer = new FileWriter("abcde.text", false);
 		BufferedWriter write = new BufferedWriter(writer);
 		if (status != true) {
-         ll2.add(searchWord);
-           String str = " ";
+			ll2.add(searchWord);
+			String str = " ";
 			line = line + str + searchWord;
 			write.write(line);
 			write.close();
@@ -1184,7 +1185,7 @@ public class Utility {
 			String replace = line.replace(searchWord, "");
 			write.write(replace);
 			write.close();
-           
+
 		}
 		return ll2;
 	}
@@ -1194,8 +1195,7 @@ public class Utility {
 		if (status != true) {
 
 			ll2.add(searchWord);
-			
-           
+
 		} else {
 
 			ll2.remove(searchWord);
@@ -1209,8 +1209,7 @@ public class Utility {
 		if (status != true) {
 
 			ll.push(searchNUmber);
-			
-			
+
 		} else {
 
 			ll.remove(searchNUmber);
@@ -1261,7 +1260,7 @@ public class Utility {
 
 	}
 
-	public static void readFile1(LinkedList1 l3, String searchWord, boolean status, String line) {
+	public static void readFile1(LinkedList1 ll3, String searchWord, boolean status, String line) {
 
 		try {
 			FileWriter writer = new FileWriter("abcde.text", false);
@@ -1331,29 +1330,27 @@ public class Utility {
 	}
 
 	public static void put(Integer[] arr) {
-		HashMap<Integer,LinkedList> map = new HashMap<>();
+		HashMap<Integer, LinkedList> map = new HashMap<>();
 		LinkedList<Integer> l1 = new LinkedList<Integer>();
-		LinkedList<Integer>  l2 = new LinkedList<Integer>();
-		LinkedList<Integer>  l3 = new LinkedList<Integer>();
-		LinkedList<Integer>  l4 = new LinkedList<Integer>();
-		LinkedList<Integer>  l5 = new LinkedList<Integer>();
+		LinkedList<Integer> l2 = new LinkedList<Integer>();
+		LinkedList<Integer> l3 = new LinkedList<Integer>();
+		LinkedList<Integer> l4 = new LinkedList<Integer>();
+		LinkedList<Integer> l5 = new LinkedList<Integer>();
 		LinkedList<Integer> l6 = new LinkedList<Integer>();
-		LinkedList<Integer>  l7 = new LinkedList<Integer>();
-		LinkedList<Integer>  l8 = new LinkedList<Integer>();
-		LinkedList<Integer>  l9 = new LinkedList<Integer> ();
-		LinkedList<Integer>  l10 = new LinkedList<Integer> ();
-		LinkedList<Integer>  l11= new LinkedList<Integer> ();
-		for (int i = 0; i < arr.length; i++) 
-		{
-			int k=Integer.valueOf(arr[i]%11);
-			if (k == 0)
-			{
+		LinkedList<Integer> l7 = new LinkedList<Integer>();
+		LinkedList<Integer> l8 = new LinkedList<Integer>();
+		LinkedList<Integer> l9 = new LinkedList<Integer>();
+		LinkedList<Integer> l10 = new LinkedList<Integer>();
+		LinkedList<Integer> l11 = new LinkedList<Integer>();
+		for (int i = 0; i < arr.length; i++) {
+			int k = Integer.valueOf(arr[i] % 11);
+			if (k == 0) {
 				l1.add(arr[i]);
-				map.put(0,l1);
+				map.put(0, l1);
 			}
 			if (k == 1) {
 				l2.add(arr[i]);
-				map.put(1,l2);
+				map.put(1, l2);
 			}
 			if (k == 2) {
 				l3.add(arr[i]);
@@ -1365,7 +1362,7 @@ public class Utility {
 
 				map.put(3, l4);
 			}
-			if (k== 4) {
+			if (k == 4) {
 				l5.add(arr[i]);
 
 				map.put(4, l5);
@@ -1373,12 +1370,12 @@ public class Utility {
 			if (k == 5) {
 				l6.add(arr[i]);
 
-				map.put(5,l6);
+				map.put(5, l6);
 			}
 			if (k == 6) {
 				l7.add(arr[i]);
 
-				map.put(6,l7);
+				map.put(6, l7);
 			}
 			if (k == 7) {
 				l8.add(arr[i]);
@@ -1388,17 +1385,17 @@ public class Utility {
 			if (k == 8) {
 				l9.add(arr[i]);
 
-				map.put(8,l9);
+				map.put(8, l9);
 			}
 			if (k == 9) {
 				l10.add(arr[i]);
 
-				map.put(9,l10);
+				map.put(9, l10);
 			}
 			if (k == 10) {
 				l11.add(arr[i]);
 
-				map.put(10,l11 );
+				map.put(10, l11);
 			}
 
 		}
@@ -1424,7 +1421,7 @@ public class Utility {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(counter);
+		System.out.println("The number of possible arrangement is "+counter);
 	}
 
 	public static int factorial(int number) {
@@ -1437,7 +1434,7 @@ public class Utility {
 
 	}
 
-	public static void dispAngram(int n) {
+	public static void dispPrimeAngram(int n) {
 		int num = n;
 		Utility file = new Utility();
 		boolean status2, status, status1;
@@ -1516,14 +1513,16 @@ public class Utility {
 		}
 		return true;
 	}
-	public static void writeData1(String filepath) throws IOException
-	{
+
+	public static void writeData1(String filepath) throws IOException {
 		Utility utility = new Utility();
 		FileWriter writer = new FileWriter(filepath);
 		JSONObject object1 = new JSONObject();
 		JSONObject object2 = new JSONObject();
 		JSONObject object3 = new JSONObject();
-		long share;long amount;String name;
+		long share;
+		long amount;
+		String name;
 		System.out.println("Enter the 1 share");
 		share = utility.inputLong();
 		System.out.println("amount of share");
@@ -1532,11 +1531,13 @@ public class Utility {
 		System.out.println("name of share");
 		name = utility.inputString();
 		object1.put("share", share);
-		object1.put("amount",amount);
+		object1.put("amount", amount);
 		object1.put("name", name);
 
 		// input for pulses
-		long share1;long amount1;String name1;
+		long share1;
+		long amount1;
+		String name1;
 		System.out.println("Enter the 1 share");
 		share1 = utility.inputLong();
 		System.out.println("amount of share");
@@ -1545,14 +1546,14 @@ public class Utility {
 		System.out.println("name of share");
 		name1 = utility.inputString();
 		object1.put("share", share1);
-		object1.put("amount",amount1);
+		object1.put("amount", amount1);
 		object1.put("name", name1);
-
-		
 
 		// input for wheats
 
-		long share2;long amount2;String name2;
+		long share2;
+		long amount2;
+		String name2;
 		System.out.println("Enter the 1 share");
 		share2 = utility.inputLong();
 		System.out.println("amount of share");
@@ -1561,7 +1562,7 @@ public class Utility {
 		System.out.println("name of share");
 		name2 = utility.inputString();
 		object1.put("share", share2);
-		object1.put("amount",amount2);
+		object1.put("amount", amount2);
 		object1.put("name", name2);
 
 		JSONObject items = new JSONObject();
@@ -1572,12 +1573,10 @@ public class Utility {
 		writer.flush();
 		writer.close();
 
-			
-		
 	}
-	public static void writeData2(String filepath)
-	{
-		
+
+	public static void writeData2(String filepath) {
+
 		JSONArray jsonArray = new JSONArray();
 		Utility utility = new Utility();
 		System.out.println("Enter the number of company");
@@ -1586,17 +1585,16 @@ public class Utility {
 		String[] array = new String[number];
 		int share[] = new int[number];
 		int amount[] = new int[number];
-		String name[]=new String[number];
-		for (int k = 0; k < number; k++) 
-		{
+		String name[] = new String[number];
+		for (int k = 0; k < number; k++) {
 			System.out.println(" number of shares for company and share amount");
 			share[k] = utility.inputInteger();
 			amount[k] = utility.inputInteger();
-			
+
 		}
 		utility.inputString();
 		for (int i = 0; i < number; i++) {
-            System.out.println("Name of the share");
+			System.out.println("Name of the share");
 			array[i] = utility.inputString();
 		}
 		PrintWriter printWriter = null;
@@ -1607,23 +1605,22 @@ public class Utility {
 			e1.printStackTrace();
 		}
 		for (int l = 0; l < number; l++) {
-			System.out.println(
-					"  " + array[l] + "        " + share[l] + "       " + amount[l] +  "/-");
+			System.out.println("  " + array[l] + "        " + share[l] + "       " + amount[l] + "/-");
 			JSONObject jsonObject = new JSONObject();
-		    jsonObject.put("name", array[l]);
+			jsonObject.put("name", array[l]);
 			jsonObject.put("Share", share[l]);
 			jsonObject.put("amount", amount[l]);
-			
-			
+
 			jsonArray.add(jsonObject);
 
 		}
 		printWriter.write(jsonArray.toJSONString());
 		printWriter.flush();
 		printWriter.close();
-		
+
 	}
 
+	@SuppressWarnings("unchecked")
 	public static void writeData() throws IOException {
 		File file = new File("Inventory.json");
 		try {
@@ -1649,7 +1646,7 @@ public class Utility {
 			object1.put("price", price);
 
 			// input for pulses
-             utility.inputString();
+			utility.inputString();
 			System.out.println("name of pulse");
 			name = utility.inputString();
 			System.out.println("weight of pulse");
@@ -1704,7 +1701,7 @@ public class Utility {
 				}
 				System.out.println();
 				System.out.println("total cost of " + object1.get("name") + "is"
-						+ Double.parseDouble(object1.get("weight").toString())
+						+    Double.parseDouble(object1.get("weight").toString())
 								* Double.parseDouble(object1.get("price").toString()));
 			}
 		} catch (Exception e) {
@@ -1775,7 +1772,7 @@ public class Utility {
 		System.out.println();
 		PrintWriter printWriter = null;
 		try {
-			printWriter = new PrintWriter("/home/bridgeit/Documents/Nilesh/Filesforjson/Stock.json");
+			printWriter = new PrintWriter("StockReport.json");
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -1783,7 +1780,7 @@ public class Utility {
 
 		for (int l = 0; l < number; l++) {
 			System.out.println(
-					"  " + array[l] + "        " + share[l] + "       " + amount[l] + "     " + total[l] + "/-");
+					"  " + array[l] + "        "+ share[l]+"       "+amount[l]+"     "+total[l]+"/-");
 			JSONObject jsonObject = new JSONObject();
 			jsonObject.put("Company Name", array[l]);
 			jsonObject.put("Shares", share[l]);
@@ -1805,7 +1802,7 @@ public class Utility {
 
 	}
 
-	public static boolean anagram(int number, int number2) {
+	public static boolean anagramm(int number, int number2) {
 		String string = Integer.toString(number);
 		char[] charArray = string.toCharArray();
 		String string2 = Integer.toString(number2);
@@ -1846,102 +1843,7 @@ public class Utility {
 
 	}
 
-	public static JSONArray jsonFileReader(String filePath) throws FileNotFoundException {
-		File file = new File(filePath);
-		JSONArray jsonArray = null;
-		try {
-			FileReader fileReader = new FileReader(file);
-			JSONParser jsonParser = new JSONParser();
-			jsonArray = new JSONArray();
-			jsonArray = (JSONArray) jsonParser.parse(fileReader);
-
-		} catch (Exception e) {
-			System.out.println(e);
-
-		}
-		return jsonArray;
-
-	}
-
-	public JSONArray jsonFileWriter(String filePath, JSONArray jsonArray) throws FileNotFoundException {
-		FileWriter fileWriter = null;
-		try {
-			 fileWriter = new FileWriter(filePath);
-			fileWriter.write(JSONValue.toJSONString(jsonArray));
-
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		finally 
-		{
-			try
-			{
-				fileWriter.flush();
-				fileWriter.close();
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
-		return jsonArray;
-      
-	}
-
-	public int numberofrecord(String filePath) throws FileNotFoundException {
-		int count = 0;
-		JSONArray jsonArray = new JSONArray();
-		jsonArray = Utility.jsonFileReader(filePath);
-		Iterator<?> iterator = jsonArray.iterator();
-		JSONObject jsonObject = new JSONObject();
-		while (iterator.hasNext()) {
-			jsonObject = (JSONObject) iterator.next();
-			count++;
-		}
-		return count;
-
-	}
-
-	public static void display(String filePath) throws FileNotFoundException {
-		JSONArray jsonArray = new JSONArray();
-		jsonArray = Utility.jsonFileReader(filePath);
-		Iterator<?> iterator = jsonArray.iterator();
-		JSONObject jsonObject = new JSONObject();
-		while (iterator.hasNext()) {
-			jsonObject = (JSONObject) iterator.next();
-			long share = (long) jsonObject.get("shares");
-			long amount = (long) jsonObject.get("amount");
-			String name = (String) jsonObject.get("name");
-			System.out.println("Account Holder name " + name);
-			System.out.println("Total Share" + share);
-			System.out.println("Available amount " + amount);
-
-		}
-	}
-
-	public void createAccount(String filePath) {
-		Utility utility = new Utility();
-		try {
-			System.out.println("Enter your name");
-			String name = utility.inputString();
-			System.out.println("Enter the starting balance of account");
-			long balance = utility.inputLong();
-			System.out.println("Enter the number of share");
-			long share = utility.inputLong();
-			JSONArray jsonArray = new JSONArray();
-			jsonArray = utility.jsonFileReader(filePath);
-			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("name", name);
-			jsonObject.put("amount", balance);
-			jsonObject.put("shares", share);
-			jsonArray.add(jsonObject);
-			utility.jsonFileWriter(filePath, jsonArray);
-		} catch (Exception e)
-
-		{
-			System.out.println(e);
-		}
-	}
+	
 
 	public static int day(int month, int day, int year) {
 		int y = year - (14 - month) / 12;
@@ -1970,9 +1872,9 @@ public class Utility {
 			c = string.charAt(i);
 			que.insertRear(c);
 		}
-		while (que.size() > 1) {
+		while (que.size1() > 1) {
 			first = que.removeFront();
-			last = que.removeRear();
+			last = que.removeRear1();
 			if (first != last) {
 				status = false;
 				break;
@@ -2072,57 +1974,440 @@ public class Utility {
 		}
 		return questionNumber(low, power);
 	}
-	
-	public String[] Deck(String[] suits, String[] cards)
-	{
+
+	public String[] Deck(String[] suits, String[] cards) {
 		String[] deck = new String[suits.length * cards.length];
-		
-		for (int i = 0; i < cards.length; i++) 
-		{
-			for (int j = 0; j < suits.length; j++) 
-			{
-				deck[suits.length*i + j] = cards[i] + "=>" + suits[j];
+
+		for (int i = 0; i < cards.length; i++) {
+			for (int j = 0; j < suits.length; j++) {
+				deck[suits.length * i + j] = cards[i] + "=>" + suits[j];
 			}
 		}
 
 		// shuffle
-		for (int i = 0; i < deck.length; i++) 
-		{
-			int r = i + (int) (Math.random() * (deck.length-i));
+		for (int i = 0; i < deck.length; i++) {
+			int r = i + (int) (Math.random() * (deck.length - i));
 			String temp = deck[r];
 			deck[r] = deck[i];
 			deck[i] = temp;
 		}
 		return deck;
 	}
-	
+
 	/**
 	 * @param deck
 	 * 
 	 * @description This method will distribute the deck of cards into four player.
 	 */
-	public void distribute(String[] deck)
-	{
-		int indexOfDeck=0;
-		String [][] deckOfcard=new String[4][9];
-		for(int i=0; i<4; i++)
-		{
-			for(int j=0; j<9; j++)
-			{
-				deckOfcard[i][j]=deck[indexOfDeck];
+	public void distribute(String[] deck) {
+		int indexOfDeck = 0;
+		String[][] deckOfcard = new String[4][9];
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 9; j++) {
+				deckOfcard[i][j] = deck[indexOfDeck];
 				indexOfDeck++;
 			}
 		}
-		for(int i=0; i<4; i++)
-		{
-			System.out.print("\nPlayer "+(i+1)+" : ");
-			for(int j=0; j<9; j++)
-			{
-				System.out.print(deckOfcard[i][j]+", ");
+		for (int i = 0; i < 4; i++) {
+			System.out.print("\nPlayer " + (i + 1) + " : ");
+			for (int j = 0; j < 9; j++) {
+				System.out.print(deckOfcard[i][j] + ", ");
 			}
-			System.out.print("\n----------------------------------------------------------------------------------------------------------------------");
+			System.out.print(
+					"\n----------------------------------------------------------------------------------------------------------------------");
 		}
 	}
+
+	public static void anagramstatck(LinkedList listprime) {
+		LinkedList<String> listanagram = new LinkedList<String>();
+
+		for (int i = 0; i < listprime.size() - 1; i++) {
+			for (int j = i + 1; j < listprime.size(); j++) {
+				if (listprime.get(i) != null) {
+					if (Utility.anagramm((Integer) listprime.get(i), (Integer) listprime.get(j))) {
+						listanagram.add(listprime.get(i) + "-" + listprime.get(j));
+
+					}
+				}
+			}
+		}
+		Stack1 stack = new Stack1();
+		for (int i = 0; i < listanagram.size(); i++) {
+			stack.push(listanagram.get(i));
+		}
+		String[] array = new String[stack.size()];
+		for (int i = 0; i < stack.size(); i++) {
+			array[i] = (String) stack.get(i);
+		}
+		for (int i = array.length - 1; i >= 0; i--) {
+			System.out.println(array[i] + " ");
+		}
+
+	}
+
+	public static void checkArithmeticExpression(String expression) {
+		char chararray[] = expression.toCharArray();
+		Stack1 stack = new Stack1();
+		for (int i = 0; i < chararray.length; i++) {
+			if (chararray[i] == '(') {
+				stack.push("(");
+			} else if (chararray[i] == ')') {
+				stack.pop();
+			}
+		}
+		boolean flag = stack.isEmpty();
+		if (flag == true) {
+			System.out.println("Arithematic Expression is Balanced.");
+		} else {
+			System.out.println("Arithematic Expression is not Balanced.");
+		}
+
+	}
+
+	public static void printmonthofcalendar(int month, int year)
+
+	{
+		String[] months = { "", "January", "February", "March", "April", "May", "June", "July", "August", "September",
+				"October", "November", "December" };
+
+		int[] days = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		boolean status = Utility.isLeapYear(year);
+		if (month == 2 && status) {
+			days[month] = 29;
+		}
+
+		System.out.println("   " + months[month] + " " + year);
+		System.out.println(" S  M Tu  W Th  F  S");
+
+		int d = Utility.day(month, 1, year);
+
+		Utility.print1(d, month, year);
+	}
+
+	public static void primeAnagramQueueController() {
+		int start = 1;
+		int end = 1000;
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		list = Utility.primeNumber(start, end);
+		LinkedList<String> list2 = new LinkedList<String>();
+		for (int i = 0; i < list.size(); i++) {
+			for (int j = i + 1; j < list.size(); j++) {
+				if (list.get(i) != null) {
+					if (Utility.anagramm((Integer) list.get(i), (Integer) list.get(j))) {
+						list2.add(list.get(i) + "-" + list.get(j));
+
+					}
+				}
+			}
+		}
+		Queue1<String> queue = new Queue1<String>();
+		for (int i = 0; i < list2.size(); i++) {
+			queue.enqueue(list2.get(i));
+		}
+		queue.getelement();
+	}
+
+	public static void primeAnagram2D() {
+		int array[][] = new int[10][];
+		int initial = 2, temp = 100;
+		int i, j, k;
+		for (i = 0; i < 10; i++) {
+			int size = 0;
+			for (j = initial; j < temp; j++) {
+				boolean flag = true;
+				for (k = 2; k < j; k++) {
+					if (j % k == 0) {
+						flag = false;
+						break;
+					}
+				}
+				if (flag == true) {
+					size++;
+				}
+			}
+			array[i] = new int[size];
+			j = 0;
+			int m;
+			for (m = initial; m < temp; m++) {
+				boolean temp1 = true;
+				for (int q = 2; q < m; q++) {
+					if (m % q == 0) {
+						temp1 = false;
+						break;
+					}
+				}
+
+				if (temp1 == true) {
+					array[i][j] = m;
+					System.out.print(array[i][j] + "  ");
+					j++;
+				}
+			}
+			System.out.println();
+			initial = temp;
+			temp = temp + 100;
+		}
+	}
+
+	public static String fileReader() throws IOException {
+
+		LinkedList1 linkedlistorder = new LinkedList1();
+		FileReader fileReader = new FileReader("abc.text");
+		BufferedReader bufferedReader = new BufferedReader(fileReader);
+		String line = bufferedReader.readLine();
+		String array[] = line.split(" ");
+		for (int i = 0; i < array.length; i++) {
+			linkedlistorder.add(array[i]);
+		}
+
+		return line;
+
+	}
+
+	public static void fileWriter(String searchWord, LinkedList1 linkedlistunorder, String line)
+
+	{
+		boolean status = linkedlistunorder.search(searchWord);
+		LinkedList1 l3 = new LinkedList1();
+		l3 = Utility.addRemove(status, searchWord, linkedlistunorder);
+
+		l3.display();
+		Utility.readFile(l3, searchWord, status, line);
+
+	}
+
+	public static LinkedListviasort orderListFileReader() throws IOException {
+		LinkedListviasort sortlist = new LinkedListviasort();
+		File file = new File("pqrst.text");
+		file.createNewFile();
+		FileReader fileReader = new FileReader(file);
+
+		BufferedReader bufferedReader = new BufferedReader(fileReader);
+		String line = bufferedReader.readLine();
+		System.out.println(line);
+		String array[] = line.split(" ");
+		int[] arr = new int[array.length];
+		for (int i = 0; i < array.length; i++) {
+			arr[i] = Integer.parseInt(array[i]);
+		}
+
+		for (int i = 0; i < array.length; i++) {
+			sortlist.push(arr[i]);
+		}
+
+		return sortlist;
+
+	}
+	
+	public static String hashmapFileReader() throws IOException
+	{
+		FileReader fileReader = new FileReader("abcde.text");
+		BufferedReader bufferedReader = new BufferedReader(fileReader);
+		String sentence = bufferedReader.readLine();
+		System.out.println(sentence);
+		return sentence;
+	}
+	
+	public static JSONObject readFromFile(String filename) throws FileNotFoundException, IOException, ParseException {
+		Object obj = new JSONParser().parse(new FileReader("Stockaccount.json"));
+		JSONObject jo = (JSONObject) obj;
+		return jo;
+
+	}
+
+	public static void addtoFile(String filename) throws FileNotFoundException, IOException, ParseException {
+		Utility utility = new Utility();
+		JSONObject jsonObject = readFromFile("Stockaccount.json");
+		JSONArray jsonArray = (JSONArray) jsonObject.get("stock");
+		JSONObject jsonObject2 = new JSONObject();
+		System.out.println("Enter the name of the share");
+		String name = utility.inputString();
+		System.out.println("Enter the number of share");
+		int noofshare = utility.inputInteger();
+		utility.inputString();
+		System.out.println("Enter the shareprice");
+		int shareprice = utility.inputInteger();
+		utility.inputString();
+		String time = Utility.getCurrentTime();
+		String date =Utility.getCurrentDate();
+		jsonObject2.put("Name", name);
+		jsonObject2.put("noofshare", noofshare);
+		jsonObject2.put("Shareprice", shareprice);
+		jsonObject2.put("time", time);
+		jsonObject2.put("date",date);
+		jsonArray.add(jsonObject2);
+		jsonObject.put("stock", jsonArray);
+
+		PrintWriter pw = new PrintWriter("Stockaccount.json");
+		pw.write(jsonObject.toJSONString());
+		pw.flush();
+		pw.close();
+
+	}
+
+	public static void deletetoFile(String filename) throws FileNotFoundException, IOException, ParseException {
+		Utility utility = new Utility();
+		JSONObject jsonObject = readFromFile("Stockaccount.json");
+		JSONArray jsonArray = (JSONArray) jsonObject.get("stock");
+		JSONObject jsonObject3 = new JSONObject();
+
+		System.out.println("Enter the name from user");
+		String name1 = utility.inputString();
+
+		for (int i = 0; i < jsonArray.size(); i++) {
+
+			jsonObject3 = (JSONObject) jsonArray.get(i);
+			String name = (String) jsonObject3.get("Name");
+			if (name.equalsIgnoreCase(name1)) {
+				jsonArray.remove(i);
+				jsonObject.put("stock", jsonArray);
+				PrintWriter pw = new PrintWriter("Stockaccount.json");
+				pw.write(jsonObject.toJSONString());
+				pw.flush();
+				pw.close();
+				break;
+			}
+		}
+
+	}
+
+	public static int numberofrecordofpersons(String filePath) throws IOException, ParseException {
+		int count = 0;
+		JSONObject jsonObject = readFromFile("Stockaccount.json");
+		JSONArray jsonArray = (JSONArray) jsonObject.get("stock");
+		JSONObject jsonObject3 = new JSONObject();
+		Iterator<?> iterator = jsonArray.iterator();
+
+		while (iterator.hasNext()) {
+			jsonObject3 = (JSONObject) iterator.next();
+			count++;
+		}
+		return count;
+
+	}
+
+	public static void sell(long shareToSell) throws IOException, ParseException {
+	
+		Utility utility = new Utility();
+		JSONObject jsonObject2 = readFromFile("Stockaccount.json");
+		JSONArray jsonArray =  (JSONArray) jsonObject2.get("stock");
+		JSONObject jsonObject3 = new JSONObject();
+		System.out.println("Enter the name from user");
+		String name1 = utility.inputString();
+
+		for (int i = 0; i < jsonArray.size(); i++) {
+			jsonObject3 = (JSONObject) jsonArray.get(i);
+			String name2 = (String) jsonObject3.get("Name");
+			if (name1.equalsIgnoreCase(name2)) {
+				System.out.println("hi");
+				long totalshare = (long) jsonObject3.get("noofshare");
+				String time = (String) jsonObject3.get("time");
+				String date = (String) jsonObject3.get("date");
+				long remainingshare = totalshare - shareToSell;
+				jsonObject3.put("noofshare", remainingshare);
+				jsonObject3.put("time", time);
+				jsonObject3.put("date", date);
+				jsonArray.set(i,jsonObject3);
+				jsonObject2.put("stock", jsonArray);
+				PrintWriter pw = new PrintWriter("Stockaccount.json");
+				pw.write(jsonObject2.toJSONString());
+				pw.flush();
+				pw.close();
+				break;
+
+			}
+
+		}
+	}
+
+	
+	public static void buy(long sharetoBuy) throws FileNotFoundException, IOException, ParseException
+	{
+		Utility utility = new Utility();
+		JSONObject jsonObject2 = readFromFile("Stockaccount.json");
+		JSONArray jsonArray =  (JSONArray) jsonObject2.get("stock");
+		JSONObject jsonObject3 = new JSONObject();
+		System.out.println("Enter the name from user");
+		String name1 = utility.inputString();
+
+		for (int i = 0; i < jsonArray.size(); i++) {
+			jsonObject3 = (JSONObject) jsonArray.get(i);
+			String name2 = (String) jsonObject3.get("Name");
+			if (name1.equalsIgnoreCase(name2)) {
+				System.out.println("hi");
+				long totalshare = (long) jsonObject3.get("noofshare");
+				String time = (String) jsonObject3.get("time");
+				String date = (String) jsonObject3.get("date");
+				long finalshare = totalshare + sharetoBuy;
+				
+				
+				jsonObject3.put("noofshare", finalshare);
+				jsonObject3.put("time", time);
+				jsonObject3.put("date", date);
+				jsonArray.set(i,jsonObject3);
+				jsonObject2.put("stock", jsonArray);
+				PrintWriter pw = new PrintWriter("Stockaccount.json");
+				pw.write(jsonObject2.toJSONString());
+				pw.flush();
+				pw.close();
+				break;
+
+			}
+
+		}
+		
+	}
+	  public static void displaynoshare(String filePath) throws IOException, ParseException
+	    {
+		    Utility utility = new Utility();
+			JSONObject jsonObject2 = readFromFile("Stockaccount.json");
+			JSONArray jsonArray =  (JSONArray) jsonObject2.get("stock");
+	    	Iterator<?> iterator =  jsonArray.iterator();
+	    	JSONObject jsonObject = new JSONObject();
+	    	while(iterator.hasNext())
+	    	{
+	    		jsonObject=(JSONObject)iterator.next();
+	    		long share = (long)jsonObject.get("noofshare");
+	    		long amount = (long)jsonObject.get("Shareprice");
+	    		String name = (String)jsonObject.get("Name");
+	    		String date = (String) jsonObject.get("date");
+	    		String time = (String) jsonObject.get("time");
+	    		System.out.println("Account Holder name- "+name);
+	    		System.out.println("Total Share -"+share);
+	    		System.out.println("Available amount -"+amount);
+	    		System.out.println("Date- "+date);
+	    		System.out.println("Time - "+time);
+	    	}
+	    }
+
+	  
+	  public static String getCurrentTime()
+	  {
+		    Calendar cal = Calendar.getInstance();
+	        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	         String time = sdf.format(cal.getTime());
+			return time;
+	  }
+	  
+	  
+	  public static String getCurrentDate()
+	  {
+		  Date dNow = new Date( );
+		  SimpleDateFormat ft1 = new SimpleDateFormat ("dd/MM/yyyy");
+          String date =ft1.format(dNow);
+		return date;
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 }
-
-

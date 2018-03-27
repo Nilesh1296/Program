@@ -107,13 +107,13 @@ public class Addressbookmethod {
 			String state = (String) jsonObject.get("State");
 			String city = (String) jsonObject.get("City");
 			String phonenumber = (String) jsonObject.get("Phonenumber");
-			System.out.println("Zip code " + zip);
-			System.out.println("address" + address);
-			System.out.println("Last name " + lname);
-			System.out.println("first name" + fname);
-			System.out.println("state " + state);
-			System.out.println("city " + city);
-			System.out.println("phonenumber " + phonenumber);
+			System.out.println("Zip code  - " + zip);
+			System.out.println("address -" + address);
+			System.out.println("Last name -" + lname);
+			System.out.println("first name-" + fname);
+			System.out.println("state - " + state);
+			System.out.println("city -" + city);
+			System.out.println("phonenumber- " + phonenumber);
 
 		}
 	}
@@ -130,8 +130,8 @@ public class Addressbookmethod {
 		while(iterator.hasNext())
 		{
 			JSONObject jsonobject2 = (JSONObject)iterator.next();
-			System.out.print("  Firstname"+jsonobject2.get("Fname")+"Lastname" +jsonobject2.get("Lname")+ "City"+jsonobject2.get("City"));
-			System.out.print("State"+jsonobject2.get("State")+"Zip"+jsonobject2.get("Zip")+"Phonenumber"+jsonobject2.get("Phonenumber"));
+			System.out.print("  Firstname   "+jsonobject2.get("Fname")+"Lastname   " +jsonobject2.get("Lname")+ "City    "+jsonobject2.get("City"));
+			System.out.print("State   "+jsonobject2.get("State")+"Zip    "+jsonobject2.get("Zip")+"Phonenumber   "+jsonobject2.get("Phonenumber"));
 			System.out.print("Address"+jsonobject2.get("Address"));
 			
 		}

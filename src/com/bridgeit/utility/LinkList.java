@@ -1,4 +1,4 @@
-package com.bridgeit.datastructure;
+package com.bridgeit.utility;
 
 public class LinkList 
 {

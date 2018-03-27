@@ -1,5 +1,6 @@
-package com.bridgeit.datastructure;
-class LinkedQueue  
+package com.bridgeit.utility;
+
+public class LinkedQueue  
 {
   private Node front, rear; //begin and end nodes
   int size; // number of items
