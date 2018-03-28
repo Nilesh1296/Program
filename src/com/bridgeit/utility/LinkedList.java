@@ -1,6 +1,6 @@
-package com.bridgeit.objectoriented;
+package com.bridgeit.utility;
 
-public class LinkedList1512
+public class LinkedList
 {
 	Node head=null, tail=null, temp, temp2, previous, new_node;
 	int elements=0;

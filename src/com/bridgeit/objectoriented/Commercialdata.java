@@ -1,63 +1,72 @@
-package com.bridgeit.objectoriented;
+/******************************************************************************
+  
+ *  Purpose: From a stock of company we have to add stock,delete stock update 
+ *  date,sell share,buy share of a stack
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   12-03-2018
+ *
+ ******************************************************************************/
 
+package com.bridgeit.objectoriented;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
+import java.text.ParseException;
 
 import com.bridgeit.utility.Utility;
 
-public class Commercialdata
-{
-  public static void main(String[] args) throws IOException 
-  {
-			System.out.println("Program Started");
-			Scanner scanner=new Scanner(System.in);
-			
-			String filePath="/home/bridgeit/Documents/Nilesh/Filesforjson/Commercial.json";
-		    Utility.writeData2(filePath);
-			boolean check=true;
-			do{
-				StockAccount stockAccount=new StockAccount();
-				System.out.println("Enter The number  \n 1 : Number of Record\n 2 : Create account \n 3 : Sale shares \n 4:Purchase the shares \n 5: exit");
-				int option=scanner.nextInt();
-				
-				switch (option) {
-				case 1:
-					int totalAccounts=stockAccount.numberofrecord(filePath);
-					System.out.println("Total Number of Accounts : "+totalAccounts);
-					stockAccount.display(filePath);
-					break;
-				case 2:
-					stockAccount.createAccount(filePath);
-					break;
-				case 3:
-					System.out.println("AIRTEL : @ \nVODAPHONE : # \nSONY : & \nSAMSUNG : $");
-					System.out.println("Enter the Symbol of company : ");
-					scanner.nextLine();
-					String name=scanner.nextLine();
-					System.out.println("Enter how much share you want to sell : ");
-					long share=scanner.nextLong();
-					stockAccount.sell(share, name);
-					break;
-				case 4:
-					System.out.println("AIRTEL : @ \nVODAPHONE : # \nSONY : & \nSAMSUNG : $");
-					System.out.println("Enter the Symbol of company : ");
-					scanner.nextLine();
-					String symbol2=scanner.nextLine();
-					System.out.println("Enter how much share you want to buy : ");
-					long shareToBuy=scanner.nextLong();
-					stockAccount.buy(shareToBuy, symbol2);
-					break;
-				case 5:
-					check=false;
-					break;
-				default:
-					System.out.println("You have entered wrong ption, please enter correct option.");
-					break;
-				}
-				
-			}while(check);
-			System.out.println("Program Ended ");
-		}
-  }
+public class Commercialdata {
 
+	public static void main(String[] args)
+			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
+		Utility utility = new Utility();
+		System.out.println("Enter any positive number");
+		int choice1 = utility.inputInteger();
+		utility.inputString();
+		while (choice1 > 0) {
+			System.out.println("enter 1 to add share details to the file");
+			System.out.println("enter 2 to delete the share from the file");
+			System.out.println("enter 3 to count number of account");
+			System.out.println("enter 4 to sell number of share");
+			System.out.println("enter 5 to buy number of share ");
+			System.out.println("enter 6 to display the json file");
+			System.out.println("Enter the choice");
+			int choice = utility.inputInteger();
+			utility.inputString();
+			switch (choice) {
+			case 1:
+
+				Utility.addtoFile("Stockaccount.json");
+				break;
+
+			case 2:
+				Utility.deletetoFile("Stockaccount.json");
+				break;
+
+			case 3:
+				int count1 = Utility.numberofrecordofpersons("Stockaccount.json");
+				System.out.println(count1);
+
+				break;
+
+			case 4:
+				System.out.println("enter the number of share to sell");
+				long shareToSell = utility.inputLong();
+
+				Utility.sell(shareToSell);
+				break;
+			case 5:
+				System.out.println("enter the number of share to buy");
+				long sharetoBuy = utility.inputLong();
+				Utility.buy(sharetoBuy);
+				break;
+			case 6:
+				System.out.println("display the json file");
+				Utility.displaynoshare("Stockaccount.json");
+				break;
+			}
+
+		}
+	}
+}

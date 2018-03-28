@@ -1,1 +1,14 @@
-[{"Company Name":"amazon","total":240,"Price":16,"Shares":15}]
+[
+	{
+		"Company Name": "nil",
+		"total": 266,
+		"Price": 19,
+		"Shares": 14
+	},
+	{
+		"Company Name": "reli",
+		"total": 272,
+		"Price": 16,
+		"Shares": 17
+	}
+]

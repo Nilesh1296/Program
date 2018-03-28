@@ -15,7 +15,7 @@ public class ClinicManagement
 		boolean check = true;
 	do
 	{
-		Clinicmethod clinic = new Clinicmethod();
+		
 		System.out.println("Enter 1 to add doctor to the file.");
 		System.out.println("Enter 2 to add patient to the file");
 		System.out.println("Enter 3 to take appointment");
@@ -31,16 +31,16 @@ public class ClinicManagement
 		switch(option)
 		{
 		case 1:
-			clinic.addDoctor("Doctorfile.json");
+			Utility.addDoctor();
 		break;	
 		case 2 :
-			clinic.addPatient("Patient.json");
+			Utility.addPatient("Patient.json");
 		break;
 		case 3 :
-			clinic.searchdoctor("Doctorfile.json");
+			Utility.searchdoctor("Doctorfile.json");
 		break;
 		case 4 :
-			clinic.searchPatient("Patient.json");
+			Utility.searchPatient("Patient.json");
 		break;
 		case 5:
 			

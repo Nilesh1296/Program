@@ -1,6 +1,6 @@
 /******************************************************************************
   
- *  Purpose: Display the contents of the jsonfile using queue
+ *  Purpose: Display the contents of Stock using Stack
  *
  *  @author  Nilesh singh
  *  @version 1.0
@@ -11,24 +11,17 @@
 package com.bridgeit.objectoriented;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Queue;
+import java.util.Stack;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.bridgeit.utility.Utility;
 
-public class StockQueue {
-
-	Utility utility = new Utility();
-
+public class StockStack {
 	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
-		Queue<JSONObject> queue = Utility.shareTransaction();
-		System.out.println(queue.toString());
-
+		Stack<JSONObject> stack = Utility.shareTransactionusingStack();
+		System.out.println(stack.toString());
 	}
 }

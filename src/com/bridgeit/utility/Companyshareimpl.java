@@ -1,4 +1,4 @@
-package com.bridgeit.objectoriented;
+package com.bridgeit.utility;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
 
 import com.bridgeit.utility.Utility;
 
-public class Linkedlistimplement
+public class Companyshareimpl
 {
 	Utility utility=new Utility();
 	Scanner scanner=new Scanner(System.in);
@@ -22,7 +22,7 @@ public class Linkedlistimplement
 		jsonArray=utility.jsonFileReader(filePath);
 		Iterator<?> iterator=jsonArray.iterator();
 		JSONObject jsonObject=new JSONObject();
-		LinkedList1512 linkedList=new LinkedList1512();
+		LinkedList linkedList=new LinkedList();
 		while(iterator.hasNext())
 		{
 			jsonObject=(JSONObject) iterator.next();
@@ -34,7 +34,7 @@ public class Linkedlistimplement
 		System.out.print("Companies shares => ");
 		for(int i=0; i<linkedList.size(); i++)
 		{
-	//		System.out.print(linkedList.get(i)+" : "+linkedList.get(i+1)+", ");
+			System.out.print(linkedList.get(i)+" : "+linkedList.get(i+1)+", ");
 			i++;
 		}
 		System.out.println("\n---------------------------------------------------------------------------");
