@@ -1,1 +1,16 @@
-[{}]
+{
+	"patient": [
+		{
+			"mobilenumber": "486",
+			"id": 4,
+			"nameofpatient": "sarika",
+			"age": 18
+		},
+		{
+			"mobilenumber": "7854",
+			"id": 45,
+			"nameofpatient": "freww",
+			"age": 15
+		}
+	]
+}

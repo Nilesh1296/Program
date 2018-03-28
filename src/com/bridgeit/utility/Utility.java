@@ -2221,6 +2221,12 @@ public class Utility {
 		return jo;
 
 	}
+	public static JSONObject readFromFileDoctor(String filename) throws FileNotFoundException, IOException, ParseException {
+		Object obj = new JSONParser().parse(new FileReader("Doctorfile.json"));
+		JSONObject jo = (JSONObject) obj;
+		return jo;
+
+	}
 
 	public static void addtoFile(String filename) throws FileNotFoundException, IOException, ParseException {
 		Utility utility = new Utility();
@@ -2676,14 +2682,29 @@ public class Utility {
 			return jo;
 
 		}
+		
+		public static JSONObject readFromFilePatient(String filename) throws FileNotFoundException, IOException, ParseException {
+			Object obj = new JSONParser().parse(new FileReader("Patient.json"));
+			JSONObject jo = (JSONObject) obj;
+			return jo;
 
-		public static void addDoctor() throws IOException, ParseException {
+		}
+		public static JSONObject readFromFileApointment(String filename) throws FileNotFoundException, IOException, ParseException {
+			Object obj = new JSONParser().parse(new FileReader("Apointment.json"));
+			JSONObject jo = (JSONObject) obj;
+			return jo;
+
+		}
+		
+    
+		public static void addDoctor(String filename) throws IOException, ParseException {
 			Utility utility = new Utility();
-			JSONObject jsonObject = readFromFile("Doctorfile.json");
-			JSONArray jsonArray = (JSONArray) jsonObject.get("doctor");
-			JSONObject jsonObject2 = new JSONObject();
+			JSONObject jsonObjectDoctor = readFromFileDoctor("Doctorfile.json");
+			JSONArray jsonArray = (JSONArray) jsonObjectDoctor.get("doctor");
+			JSONObject jsonObjectStoreDoctor = new JSONObject();
 			System.out.println("Enter your doctor name");
 			String name = utility.inputString();
+			
 			System.out.println("Enter your doctor id");
 			long id = utility.inputLong();
 	        utility.inputString();
@@ -2694,15 +2715,15 @@ public class Utility {
 			String availabilty = utility.inputString();
 			System.out.println("enter the speciliazation");
 			String speciliazation = utility.inputString();
-			jsonObject2.put("nameofdoctor",name);
-			jsonObject2.put("id", id);
-			jsonObject2.put("apointment", apointment);
-			jsonObject2.put("availabilty",availabilty);
-			jsonObject2.put("speciliaz", speciliazation);
-			jsonArray.add(jsonObject2);
-			jsonObject.put("doctor", jsonArray);
+			jsonObjectStoreDoctor.put("nameofdoctor",name);
+			jsonObjectStoreDoctor.put("id", id);
+			jsonObjectStoreDoctor.put("apointment", apointment);
+			jsonObjectStoreDoctor.put("availabilty",availabilty);
+			jsonObjectStoreDoctor.put("speciliaz", speciliazation);
+			jsonArray.add(jsonObjectDoctor);
+			jsonObjectDoctor.put("doctor", jsonArray);
 			PrintWriter pw = new PrintWriter("Doctorfile.json");
-			pw.write(jsonObject.toJSONString());
+			pw.write(jsonObjectDoctor.toJSONString());
 			pw.flush();
 			pw.close();
 			
@@ -2716,9 +2737,9 @@ public class Utility {
 		
 		public static void addPatient(String filepath) throws IOException, ParseException {
 			Utility utility = new Utility();
-			JSONObject jsonObject = readFromFile1("Patient.json");
-			JSONArray jsonArray = (JSONArray) jsonObject.get("patient");
-			JSONObject jsonObject2 = new JSONObject();
+			JSONObject jsonObjectPatient = readFromFilePatient("Patient.json");
+			JSONArray jsonArrayforPatient = (JSONArray) jsonObjectPatient.get("patient");
+			JSONObject jsonObjectStorePatient = new JSONObject();
 			System.out.println("Enter your patient name");
 			String name = utility.inputString();
 			System.out.println("Enter your patient id");
@@ -2728,14 +2749,14 @@ public class Utility {
 			String mobilenumber = utility.inputString();
 			System.out.println("enter the age");
 			long age = utility.inputInteger();
-			jsonObject2.put("nameofpatient",name);
-			jsonObject2.put("id", id);
-			jsonObject2.put("mobilenumber",mobilenumber);
-			jsonObject2.put("age", age);
-			jsonArray.add(jsonObject2);
-			jsonObject.put("patient", jsonArray);
+			jsonObjectStorePatient.put("nameofpatient",name);
+			jsonObjectStorePatient.put("id", id);
+			jsonObjectStorePatient.put("mobilenumber",mobilenumber);
+			jsonObjectStorePatient.put("age", age);
+			jsonArrayforPatient.add(jsonObjectStorePatient);
+			jsonObjectPatient.put("patient", jsonArrayforPatient);
 			PrintWriter pw = new PrintWriter("Patient.json");
-			pw.write(jsonObject.toJSONString());
+			pw.write(jsonObjectPatient.toJSONString());
 			pw.flush();
 			pw.close();
 			
@@ -2744,24 +2765,24 @@ public class Utility {
 		public static void searchdoctor(String filename) throws FileNotFoundException, IOException, ParseException
 		{
 			Utility utility = new Utility();
-			JSONObject jsonObject = readFromFile("Doctorfile.json");
-			JSONArray jsonArray = (JSONArray) jsonObject.get("doctor");
-			JSONObject jsonObject2 = new JSONObject();
+			JSONObject jsonObjectDoctor = readFromFileDoctor("Doctorfile.json");
+			JSONArray jsonArray = (JSONArray) jsonObjectDoctor.get("doctor");
+			JSONObject jsonNewObject = new JSONObject();
 			System.out.println("Enter your doctor name");
 			String name = utility.inputString();
 			Iterator<?> iterator = jsonArray.iterator();
-			JSONObject jsonObject3 = new JSONObject();
+			JSONObject jsonSearchObject = new JSONObject();
 			boolean check =true;
 			while(iterator.hasNext())
 			{
-				jsonObject3 =(JSONObject)iterator.next();
-				if(name.equalsIgnoreCase((String) jsonObject3.get("nameofdoctor")))
+				jsonSearchObject =(JSONObject)iterator.next();
+				if(name.equalsIgnoreCase((String) jsonSearchObject.get("nameofdoctor")))
 				{
-					System.out.print(" Doctor name :"+jsonObject3.get("nameofdoctor"));
-					System.out.print("Id  :"+jsonObject3.get("id"));
-					System.out.println("apointment:"+jsonObject3.get("apointment"));
-					System.out.print("availibility :"+jsonObject3.get("availabilty"));
-					System.out.println("Specialization :"+jsonObject3.get("speciliaz"));
+					System.out.print(" Doctor name :"+jsonSearchObject.get("nameofdoctor"));
+					System.out.print("Id  :"+jsonSearchObject.get("id"));
+					System.out.println("apointment:"+jsonSearchObject.get("apointment"));
+					System.out.print("availibility :"+jsonSearchObject.get("availabilty"));
+					System.out.println("Specialization :"+jsonSearchObject.get("speciliaz"));
 					check =false;
 					break;
 					
@@ -2776,23 +2797,22 @@ public class Utility {
 		public static void searchPatient(String filename) throws FileNotFoundException, IOException, ParseException
 		{
 			Utility utility = new Utility();
-			JSONObject jsonObject = readFromFile1("Patient.json");
-			JSONArray jsonArray = (JSONArray) jsonObject.get("patient");
-			JSONObject jsonObject2 = new JSONObject();
+			JSONObject jsonObjectPatient = readFromFilePatient("Patient.json");
+			JSONArray jsonArray = (JSONArray) jsonObjectPatient.get("patient");
 			System.out.println("Enter your patient name");
 			String name = utility.inputString();
 			Iterator<?> iterator = jsonArray.iterator();
-			JSONObject jsonObject3 = new JSONObject();
+			JSONObject newJsonObjectSearch = new JSONObject();
 			boolean check =true;
 			while(iterator.hasNext())
 			{
-				jsonObject3 =(JSONObject)iterator.next();
-				if(name.equalsIgnoreCase((String) jsonObject3.get("nameofpatient")))
+				newJsonObjectSearch =(JSONObject)iterator.next();
+				if(name.equalsIgnoreCase((String) newJsonObjectSearch.get("nameofpatient")))
 				{
-					System.out.print(" patient name :"+jsonObject3.get("nameofpatient"));
-					System.out.print("Id  :"+jsonObject3.get("id"));
-					System.out.println("mobilenumber :"+jsonObject3.get("mobilenumber"));
-					System.out.println("age :"+jsonObject3.get("age"));
+					System.out.print(" patient name :"+newJsonObjectSearch.get("nameofpatient"));
+					System.out.print("Id  :"+newJsonObjectSearch.get("id"));
+					System.out.println("mobilenumber :"+newJsonObjectSearch.get("mobilenumber"));
+					System.out.println("age :"+newJsonObjectSearch.get("age"));
 					check =false;
 					break;
 					
@@ -2889,9 +2909,117 @@ public class Utility {
 			return  stack;
 		}
 		
-
+		public static void searchdoctorbyId(String filename) throws FileNotFoundException, IOException, ParseException
+		{
+			Utility utility = new Utility();
+			JSONObject jsonObject = readFromFileDoctor("Doctorfile.json");
+			JSONArray jsonArray = (JSONArray) jsonObject.get("doctor");
+			JSONObject jsonObject2 = new JSONObject();
+			System.out.println("Enter your doctor id");
+			long id = utility.inputLong();
+			Iterator<?> iterator = jsonArray.iterator();
+			JSONObject jsonObject3 = new JSONObject();
+			boolean check =true;
+			while(iterator.hasNext())
+			{
+				jsonObject3 =(JSONObject)iterator.next();
+				if(id==(Long)jsonObject3.get("id"))
+				{
+					System.out.print(" Doctor name :"+jsonObject3.get("nameofdoctor"));
+					System.out.print("Id  :"+jsonObject3.get("id"));
+					System.out.println("apointment:"+jsonObject3.get("apointment"));
+					System.out.print("availibility :"+jsonObject3.get("availabilty"));
+					System.out.println("Specialization :"+jsonObject3.get("speciliaz"));
+					check =false;
+					break;
+					
+				}
+			}
+			if(check)
+			{
+				System.out.println("Doctor not found");
+			}
+		}
 		
-}
+		public static void searchPatientbyId(String filename) throws FileNotFoundException, IOException, ParseException
+		{
+			Utility utility = new Utility();
+			JSONObject jsonObject = readFromFilePatient("Patient.json");
+			JSONArray jsonArray = (JSONArray) jsonObject.get("patient");
+			JSONObject jsonObject2 = new JSONObject();
+			System.out.println("Enter your patient id");
+			long id = utility.inputLong();
+			Iterator<?> iterator = jsonArray.iterator();
+			JSONObject jsonObject3 = new JSONObject();
+			boolean check =true;
+			while(iterator.hasNext())
+			{
+				jsonObject3 =(JSONObject)iterator.next();
+				if(id==(Long)jsonObject3.get("id"))
+				{
+					System.out.print(" patient name :"+jsonObject3.get("nameofpatient"));
+					System.out.print("Id  :"+jsonObject3.get("id"));
+					System.out.println("mobilenumber :"+jsonObject3.get("mobilenumber"));
+					System.out.println("age :"+jsonObject3.get("age"));
+					check =false;
+					break;
+					
+				}
+			}
+			if(check)
+			{
+				System.out.println("Patient not found");
+			}
+		}
+		
+		public static void searchAndbookdoctor(JSONObject patients) throws FileNotFoundException, IOException, ParseException
+		{
+			Utility utility = new Utility();
+			System.out.println("Enter doctor name");
+			String doctorname =(String)utility.inputString();
+			Utility.searchDOctorByName(doctorname,patients);
+		}
+		
+		public static void searchDOctorByName(String doctorname,JSONObject patients) throws FileNotFoundException, IOException, ParseException
+		{
+			Utility utility = new Utility();
+			JSONObject doctor = null;
+			boolean doctorpresent = false;
+			JSONObject jsonObjectDOctor = readFromFileDoctor("Doctorfile.json");
+			JSONArray jsonArraydoctor = (JSONArray) jsonObjectDOctor.get("doctor");
+			for(int i=0;i<jsonArraydoctor.size();i++)
+			{
+				JSONObject jsonObjectdoctor =(JSONObject)jsonArraydoctor.get(i);
+				System.out.println(jsonObjectdoctor);
+				String name = (String)jsonObjectdoctor.get("nameofdoctor");
+				System.out.println(name);
+				if(name.equals(doctorname))
+				{
+					System.out.println("hi");
+					JSONObject jsonObject = readFromFileApointment("Apointment.json");
+					JSONArray jsonArrayforapointment= (JSONArray) jsonObject.get("apointment");
+					JSONObject jsonObjectapointment = new JSONObject();
+					Long id =(Long)patients.get("id");
+					jsonObjectapointment.put("patientid",id);
+	                jsonObjectapointment.put("doctorname",name);
+	                jsonArrayforapointment.add(jsonObjectapointment);
+	                jsonObject.put("apointment", jsonArrayforapointment);
+	                PrintWriter pw = new PrintWriter("Apointment.json");
+	    			pw.write(jsonObject.toJSONString());
+	    			pw.flush();
+	    			pw.close();
+				}
+				else
+				{
+					System.out.println("doctor is not present");
+				}
+			}
+			
+				
+			}
+			
+		}
+
 
 
 

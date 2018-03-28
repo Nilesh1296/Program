@@ -19,7 +19,7 @@ import com.bridgeit.utility.Utility;
 public class AddressbookImpl 
 {
 	Utility utility = new Utility();
-	Scanner scanner = new Scanner(System.in);
+	
 	public void display(String filePath) {
 		JSONArray jsonArray = new JSONArray();
 		jsonArray = jsonFileReader(filePath);
@@ -57,33 +57,31 @@ public class AddressbookImpl
 		JSONArray jsonArray = new JSONArray();
 		jsonArray = jsonFileReader("Addressbook.json");
 		Iterator<?> iterator = jsonArray.iterator();
-		JSONObject jsonObject = new JSONObject();
-
-		// Accepting the values from user.
+		JSONObject jsonObjectaddressbook = new JSONObject();
 		System.out.println("\nEnter your first name : ");
-		String fname = scanner.next();
+		String fname = utility.inputString();
 		System.out.println("\nEnter your last name : ");
-		String lname = scanner.next();
+		String lname = utility.inputString();
 		System.out.println("Enter your address : ");
-		String address = scanner.next();
+		String address = utility.inputString();
 		System.out.println("Enter your city : ");
-		String city = scanner.next();
+		String city =   utility.inputString();
 		System.out.println("Enter your state : ");
-		String state = scanner.next();
+		String state = utility.inputString();
 		System.out.println("Enter the zip : ");
-		String zip = scanner.next();
+		Long zip = utility.inputLong();
 		System.out.println("Enter your phone number : ");
-		String phoneNumber = scanner.next();
+	    Long phoneNumber = utility.inputLong();
 
 		// Puting the value into the object.
-		jsonObject.put("Fname", fname);
-		jsonObject.put("Lname", lname);
-		jsonObject.put("Address", address);
-		jsonObject.put("City", city);
-		jsonObject.put("State", state);
-		jsonObject.put("Zip", zip);
-		jsonObject.put("PhoneNumber", phoneNumber);
-		jsonArray.add(jsonObject);
+	    jsonObjectaddressbook.put("Fname", fname);
+	    jsonObjectaddressbook.put("Lname", lname);
+	    jsonObjectaddressbook.put("Address", address);
+	    jsonObjectaddressbook.put("City", city);
+	    jsonObjectaddressbook.put("State", state);
+	    jsonObjectaddressbook.put("Zip", zip);
+	    jsonObjectaddressbook.put("PhoneNumber", phoneNumber);
+		jsonArray.add(jsonObjectaddressbook);
 
 		// writing the jsonArray into the file.
 	     jsonFileWriter(filePath, jsonArray);
@@ -95,34 +93,33 @@ public class AddressbookImpl
 	 */
 	public void edit(String filePath) {
 
-		JSONArray jsonArray = new JSONArray();
-		jsonArray = jsonFileReader("Addressbook.json");
-		Iterator<?> iterator = jsonArray.iterator();
-		JSONObject jsonObject = new JSONObject();
+		JSONArray jsonArrayaddressbook = new JSONArray();
+		jsonArrayaddressbook = jsonFileReader("Addressbook.json");
+		Iterator<?> iterator = jsonArrayaddressbook.iterator();
+		JSONObject jsonObjectaddressbook = new JSONObject();
 
 		System.out.println("Enter the name of person, whos data you want to update : ");
-		String person = scanner.next();
-		scanner.nextLine();
+		String person = utility.inputString();
+		utility.inputString();
 		boolean found = true;
 		while (iterator.hasNext()) {
-			jsonObject = (JSONObject) iterator.next();
+			jsonObjectaddressbook = (JSONObject) iterator.next();
 
-			if (person.equals((String) jsonObject.get("Fname"))) {
+			if (person.equals((String) jsonObjectaddressbook.get("Fname"))) {
 				@SuppressWarnings("unchecked")
-				Set<String> keys = jsonObject.keySet();
-				String keyArray[] = (String[]) keys.toArray(new String[keys
-						.size()]);
+				Set<String> keys = jsonObjectaddressbook.keySet();
+				String keyArray[] = (String[]) keys.toArray(new String[keys.size()]);
 				for (int i = 0; i < keyArray.length; i++) {
 					System.out.println("Enter " + (i + 1) + " to "
 							+ keyArray[i]);
 				}
 				System.out.println("Enter what you want to do edit : ");
-				int key = scanner.nextInt();
+				Long key = utility.inputLong();
 				System.out.println("Enter new value : ");
-				scanner.nextLine();
-				String value = scanner.nextLine();
-				jsonObject.put(keyArray[key - 1], value);
-				jsonFileWriter(filePath, jsonArray);
+				utility.inputString();
+				String value = utility.inputString();
+				jsonObjectaddressbook.put(keyArray[(int) (key - 1)], value);
+				jsonFileWriter(filePath, jsonArrayaddressbook);
 				System.out.println("Object is updated.");
 				found = false;
 			}
@@ -138,17 +135,17 @@ public class AddressbookImpl
 	 *            @ this method using for delete the address
 	 */
 	public void delete(String filePath) {
-		JSONArray jsonArray = new JSONArray();
-		jsonArray = jsonFileReader(filePath);
-		Iterator<?> iterator = jsonArray.iterator();
+		JSONArray jsonArrayaddressbook = new JSONArray();
+		jsonArrayaddressbook = jsonFileReader(filePath);
+		Iterator<?> iterator = jsonArrayaddressbook.iterator();
 		JSONObject jsonObject = new JSONObject();
 		System.out.println("Enter the name of person to delete : ");
-		String person2 = scanner.next();
+		String person2 = utility.inputString();
 		boolean found2 = true;
 		while (iterator.hasNext()) {
 			jsonObject = (JSONObject) iterator.next();
 			if (person2.equals(jsonObject.get("Fname"))) {
-				jsonArray.remove(jsonObject);
+				jsonArrayaddressbook.remove(jsonObject);
 				found2 = false;
 				System.out.println("Removed");
 				break;
@@ -157,7 +154,7 @@ public class AddressbookImpl
 		if (found2) {
 			System.out.println("Person not found.");
 		}
-	jsonFileWriter(filePath, jsonArray);
+	jsonFileWriter(filePath, jsonArrayaddressbook);
 	}
 
 	/**
@@ -165,12 +162,12 @@ public class AddressbookImpl
 	 *            @ this method using for Sorting address by name....
 	 */
 	public void sortByName(String filePath) {
-		JSONArray jsonArray = new JSONArray();
-		jsonArray = jsonFileReader(filePath);
-		Iterator<?> iterator = jsonArray.iterator();
+		JSONArray jsonArrayaddressbook = new JSONArray();
+		jsonArrayaddressbook = jsonFileReader(filePath);
+		Iterator<?> iterator = jsonArrayaddressbook.iterator();
 		JSONObject jsonObject = new JSONObject();
 
-		String[] name = new String[jsonArray.size()];
+		String[] name = new String[jsonArrayaddressbook.size()];
 		int index = 0;
 		while (iterator.hasNext()) {
 			jsonObject = (JSONObject) iterator.next();
@@ -180,7 +177,7 @@ public class AddressbookImpl
 		Arrays.sort(name);
 
 		for (int i = 0; i < name.length; i++) {
-			Iterator<?> iterator2 = jsonArray.iterator();
+			Iterator<?> iterator2 = jsonArrayaddressbook.iterator();
 			JSONObject jsobject = new JSONObject();
 			while (iterator2.hasNext()) {
 				jsobject = (JSONObject) iterator2.next();
@@ -200,12 +197,12 @@ public class AddressbookImpl
 	 * @Description it will give you sorted list of objects by zip
 	 */
 	public void sortByZip(String filePath) {
-		JSONArray jsonArray = new JSONArray();
-		jsonArray =jsonFileReader(filePath);
-		Iterator<?> iterator = jsonArray.iterator();
+		JSONArray jsonArrayaddressbook = new JSONArray();
+		jsonArrayaddressbook =jsonFileReader(filePath);
+		Iterator<?> iterator = jsonArrayaddressbook.iterator();
 		JSONObject jsonObject = new JSONObject();
 
-		String[] name = new String[jsonArray.size()];
+		String[] name = new String[jsonArrayaddressbook.size()];
 		int index = 0;
 		while (iterator.hasNext()) {
 			jsonObject = (JSONObject) iterator.next();
@@ -218,7 +215,7 @@ public class AddressbookImpl
 			System.out.println(name[i]);
 		}
 		for (int i = 0; i < name.length; i++) {
-			Iterator<?> iterator2 = jsonArray.iterator();
+			Iterator<?> iterator2 = jsonArrayaddressbook.iterator();
 			JSONObject jsobject = new JSONObject();
 			while (iterator2.hasNext()) {
 				jsobject = (JSONObject) iterator2.next();
@@ -246,12 +243,7 @@ public class AddressbookImpl
 		return jSonArray;
 	}
 
-	/**
-	 * @author GulabThakur
-	 * @param filePath
-	 * @param jsonArray
-	 * @ using writing json file 
-	 */
+	
 	public static void jsonFileWriter(String filePath, JSONArray jsonArray) {
 		FileWriter fileWriter=null;
 		try {

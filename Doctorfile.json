@@ -1,1 +1,18 @@
-{"doctor":[]}
+{
+	"doctor": [
+		{
+			"availabilty": "pm",
+			"apointment": 3,
+			"speciliaz": "heart",
+			"id": 1,
+			"nameofdoctor": "nilesh"
+		},
+		{
+			"availabilty": "7",
+			"apointment": 4,
+			"speciliaz": "cardio",
+			"id": 4,
+			"nameofdoctor": "snehal"
+		}
+	]
+}

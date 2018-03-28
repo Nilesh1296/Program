@@ -1,32 +1,11 @@
 {
 	"stock": [
 		{
-			"date": "27\/03\/2018",
-			"Shareprice": 100,
-			"noofshare": 125,
-			"time": "17:56:00",
-			"Name": "tcs"
-		},
-		{
-			"date": "27\/03\/2018",
-			"Shareprice": 100,
-			"noofshare": 35,
-			"time": "17:56:13",
-			"Name": "reliance"
-		},
-		{
-			"date": "27\/03\/2018",
-			"Shareprice": 10,
-			"noofshare": 4580,
-			"time": "18:06:52",
-			"Name": "capgemini"
-		},
-		{
 			"date": "28\/03\/2018",
-			"Shareprice": 100,
-			"noofshare": 41,
-			"time": "15:00:08",
-			"Name": "tbgf"
+			"Shareprice": 78,
+			"noofshare": 45,
+			"time": "17:53:00",
+			"Name": "ngg"
 		}
 	]
 }
