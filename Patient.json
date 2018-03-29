@@ -1,16 +1,1 @@
-{
-	"patient": [
-		{
-			"mobilenumber": "486",
-			"id": 4,
-			"nameofpatient": "sarika",
-			"age": 18
-		},
-		{
-			"mobilenumber": "7854",
-			"id": 45,
-			"nameofpatient": "freww",
-			"age": 15
-		}
-	]
-}
+{"patient":[{"mobilenumber":"486","id":4,"nameofpatient":"sarika","age":18},{"mobilenumber":"7854","id":45,"nameofpatient":"freww","age":15},{"mobilenumber":"147856","id":7,"nameofpatient":"gtrewew","age":45},{"mobilenumber":"2586","id":5,"nameofpatient":"hgty","age":45}]}

@@ -2184,11 +2184,11 @@ public class Utility {
 	}
 
 	public static LinkedListviasort orderListFileReader() throws IOException {
-		LinkedListviasort sortlist = new LinkedListviasort();
+		 LinkedListviasort sortlist = new LinkedListviasort();
 		File file = new File("pqrst.text");
 		file.createNewFile();
 		FileReader fileReader = new FileReader(file);
-
+       
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
 		String line = bufferedReader.readLine();
 		System.out.println(line);
@@ -2196,14 +2196,26 @@ public class Utility {
 		int[] arr = new int[array.length];
 		for (int i = 0; i < array.length; i++) {
 			arr[i] = Integer.parseInt(array[i]);
+			System.out.println(arr[i]);
 		}
+        for(int i=0;i<arr.length;i++)
+        {
+        	for(int j=i+1;j<arr.length;j++)
+        	{
+        		if(arr[i]>arr[j])
+        		{
+        			int temp = arr[j];
+        			arr[j]=arr[i];
+        			arr[i]=temp;
+        		}
+        	}
+        }
 
-		for (int i = 0; i < array.length; i++) {
+		for(int i=0;i<arr.length;i++)
+		{
 			sortlist.push(arr[i]);
 		}
-
-		return sortlist;
-
+       return sortlist;
 	}
 	
 	public static String hashmapFileReader() throws IOException
@@ -2697,7 +2709,7 @@ public class Utility {
 		}
 		
     
-		public static void addDoctor(String filename) throws IOException, ParseException {
+		/*public static void addDoctor(String filename) throws IOException, ParseException {
 			Utility utility = new Utility();
 			JSONObject jsonObjectDoctor = readFromFileDoctor("Doctorfile.json");
 			JSONArray jsonArray = (JSONArray) jsonObjectDoctor.get("doctor");
@@ -2727,8 +2739,41 @@ public class Utility {
 			pw.flush();
 			pw.close();
 			
-		}
+		}*/
 		
+		
+		
+		public static void addDoctor(String filename) throws FileNotFoundException, IOException, ParseException
+		{
+			Utility utility = new Utility();
+			JSONObject jsonObjectDoctor = readFromFileDoctor("Doctorfile.json");
+			JSONArray jsonArrayforDoctor = (JSONArray) jsonObjectDoctor.get("doctor");
+			JSONObject jsonObjectStoreDoctor = new JSONObject();
+			System.out.println("Enter your doctor name");
+			String name = utility.inputString();
+			System.out.println("Enter your doctor id");
+			long id = utility.inputLong();
+	        utility.inputString();
+	        System.out.println("Enter the apointment");
+	        long apointment = utility.inputLong();
+	        utility.inputString();
+			System.out.println("Enter the availabilty");
+			String availabilty = utility.inputString();
+			System.out.println("enter the speciliazation");
+			String speciliazation = utility.inputString();
+			jsonObjectStoreDoctor.put("nameofdoctor",name);
+			jsonObjectStoreDoctor.put("id", id);
+			jsonObjectStoreDoctor.put("apointment", apointment);
+			jsonObjectStoreDoctor.put("availabilty",availabilty);
+			jsonObjectStoreDoctor.put("speciliaz", speciliazation);
+			jsonArrayforDoctor.add(jsonObjectStoreDoctor);
+			jsonObjectDoctor.put("doctor", jsonArrayforDoctor);
+			PrintWriter pw = new PrintWriter("Doctorfile.json");
+			pw.write(jsonObjectDoctor.toJSONString());
+			pw.flush();
+			pw.close();
+
+		}
 		public static JSONObject readFromFile11(String filename) throws FileNotFoundException, IOException, ParseException {
 			Object obj = new JSONParser().parse(new FileReader("Patient.json"));
 			JSONObject jo = (JSONObject) obj;

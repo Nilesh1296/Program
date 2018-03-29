@@ -1,18 +1,1 @@
-{
-	"doctor": [
-		{
-			"availabilty": "pm",
-			"apointment": 3,
-			"speciliaz": "heart",
-			"id": 1,
-			"nameofdoctor": "nilesh"
-		},
-		{
-			"availabilty": "7",
-			"apointment": 4,
-			"speciliaz": "cardio",
-			"id": 4,
-			"nameofdoctor": "snehal"
-		}
-	]
-}
+{"doctor":[{"availabilty":"pm","apointment":4,"speciliaz":"hajkba","id":4,"nameofdoctor":"nilesh"},{"availabilty":"pm","apointment":2,"speciliaz":"heart","id":5,"nameofdoctor":"grte"}]}
