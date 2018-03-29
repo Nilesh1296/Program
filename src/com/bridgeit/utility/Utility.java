@@ -2397,11 +2397,12 @@ public class Utility {
 	    		String name = (String)jsonObject.get("Name");
 	    		String date = (String) jsonObject.get("date");
 	    		String time = (String) jsonObject.get("time");
-	    		System.out.println("Account Holder name- "+name);
-	    		System.out.println("Total Share -"+share);
-	    		System.out.println("Available amount -"+amount);
-	    		System.out.println("Date- "+date);
-	    		System.out.println("Time - "+time);
+	    		System.out.println("  Account Holder name- "+name);
+	    		System.out.print("  Total Share -"+share);
+	    		System.out.print("  Available amount -"+amount);
+	    		System.out.print("  Date- "+date);
+	    		System.out.print("  Time - "+time);
+	    		System.out.println(" ");
 	    	}
 	    }
 
@@ -2823,11 +2824,11 @@ public class Utility {
 				jsonSearchObject =(JSONObject)iterator.next();
 				if(name.equalsIgnoreCase((String) jsonSearchObject.get("nameofdoctor")))
 				{
-					System.out.print(" Doctor name :"+jsonSearchObject.get("nameofdoctor"));
-					System.out.print("Id  :"+jsonSearchObject.get("id"));
-					System.out.println("apointment:"+jsonSearchObject.get("apointment"));
-					System.out.print("availibility :"+jsonSearchObject.get("availabilty"));
-					System.out.println("Specialization :"+jsonSearchObject.get("speciliaz"));
+					System.out.print(" Doctor name :  "+jsonSearchObject.get("nameofdoctor")+" ");
+					System.out.print("Id  :  "+jsonSearchObject.get("id")+" ");
+					System.out.print("apointment:"+jsonSearchObject.get("apointment")+" ");
+					System.out.print("availibility :"+jsonSearchObject.get("availabilty")+" ");
+					System.out.print("Specialization :"+jsonSearchObject.get("speciliaz")+" ");
 					check =false;
 					break;
 					
@@ -3035,18 +3036,19 @@ public class Utility {
 			for(int i=0;i<jsonArraydoctor.size();i++)
 			{
 				JSONObject jsonObjectdoctor =(JSONObject)jsonArraydoctor.get(i);
-				System.out.println(jsonObjectdoctor);
 				String name = (String)jsonObjectdoctor.get("nameofdoctor");
-				System.out.println(name);
 				if(name.equals(doctorname))
 				{
-					System.out.println("hi");
 					JSONObject jsonObject = readFromFileApointment("Apointment.json");
 					JSONArray jsonArrayforapointment= (JSONArray) jsonObject.get("apointment");
 					JSONObject jsonObjectapointment = new JSONObject();
+					String time = Utility.getCurrentTime();
+					String date =Utility.getCurrentDate();
 					Long id =(Long)patients.get("id");
 					jsonObjectapointment.put("patientid",id);
 	                jsonObjectapointment.put("doctorname",name);
+	                jsonObjectapointment.put("date", date);
+	                jsonObjectapointment.put("Time", time);
 	                jsonArrayforapointment.add(jsonObjectapointment);
 	                jsonObject.put("apointment", jsonArrayforapointment);
 	                PrintWriter pw = new PrintWriter("Apointment.json");
@@ -3054,10 +3056,7 @@ public class Utility {
 	    			pw.flush();
 	    			pw.close();
 				}
-				else
-				{
-					System.out.println("doctor is not present");
-				}
+				
 			}
 			
 				

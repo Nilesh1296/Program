@@ -202,11 +202,11 @@ public class AddressbookImpl
 		Iterator<?> iterator = jsonArrayaddressbook.iterator();
 		JSONObject jsonObject = new JSONObject();
 
-		String[] name = new String[jsonArrayaddressbook.size()];
+		Long[] name = new Long[jsonArrayaddressbook.size()];
 		int index = 0;
 		while (iterator.hasNext()) {
 			jsonObject = (JSONObject) iterator.next();
-			name[index] = (String) jsonObject.get("Zip");
+			name[index] = (Long) jsonObject.get("Zip");
 			index++;
 		}
 		Arrays.sort(name);

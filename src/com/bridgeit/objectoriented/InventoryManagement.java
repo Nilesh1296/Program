@@ -1,3 +1,13 @@
+/******************************************************************************
+  
+ *  Purpose: Print the Company details on the console
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   12-03-2018
+ *
+ ******************************************************************************/
+
 package com.bridgeit.objectoriented;
 
 import java.io.FileReader;
@@ -12,7 +22,7 @@ public class InventoryManagement {
 		int share1, price, value;
 		JSONParser parse = new JSONParser();
 		try {
-			JSONArray jsonArray= (JSONArray) parse.parse(new FileReader("StockReport.json"));
+			JSONArray jsonArray = (JSONArray) parse.parse(new FileReader("StockReport.json"));
 			for (int i = 0; i < jsonArray.size(); i++) {
 				JSONObject jsonObject2 = (JSONObject) jsonArray.get(i);
 				String name = (String) jsonObject2.get("Company Name");
@@ -26,7 +36,7 @@ public class InventoryManagement {
 				System.out.println("Comapny Share is " + share1);
 				System.out.println("Company Share Price is " + price);
 				System.out.println("Comapnty Total Value of Share is " + value);
-				
+
 			}
 		} catch (Exception e) {
 

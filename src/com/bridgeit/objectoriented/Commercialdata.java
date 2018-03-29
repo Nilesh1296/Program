@@ -46,7 +46,7 @@ public class Commercialdata {
 
 			case 3:
 				int count1 = Utility.numberofrecordofpersons("Stockaccount.json");
-				System.out.println(count1);
+				System.out.println("The number of account is"+count1);
 
 				break;
 

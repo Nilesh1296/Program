@@ -1,1 +1,16 @@
-{"apointment":[{"patientid":4,"doctorname":"niuyt"},{"patientid":4,"doctorname":"niuyt"},{"patientid":4,"doctorname":"snehal"},{"patientid":4,"doctorname":"nilesh"},{"patientid":5,"doctorname":"grte"}]}
+{
+	"apointment": [
+		{
+			"date": "29\/03\/2018",
+			"patientid": 7,
+			"Time": "14:26:14",
+			"doctorname": "abcde"
+		},
+		{
+			"date": "29\/03\/2018",
+			"patientid": 4,
+			"Time": "14:27:46",
+			"doctorname": "abcde"
+		}
+	]
+}

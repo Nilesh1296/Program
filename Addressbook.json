@@ -1,1 +1,38 @@
-[{"Zip":121,"Address":"nhuyt","Lname":"singh","State":"maharas","PhoneNumber":78546,"City":"mnhgfr","Fname":"nilesh"},{"Zip":456,"Address":"nhytr","Lname":"tiwari","State":"lucknow","PhoneNumber":754896,"City":"bhandup","Fname":"shweta"},{"Zip":125,"Address":"aswer","Lname":"frews","State":"nhuytrs","PhoneNumber":74521,"City":"nhytre","Fname":"nytr"}]
+[
+	{
+		"Zip": 121,
+		"Address": "nhuyt",
+		"Lname": "singh",
+		"State": "maharas",
+		"PhoneNumber": 78546,
+		"City": "mnhgfr",
+		"Fname": "nilesh"
+	},
+	{
+		"Zip": 456,
+		"Address": "nhytr",
+		"Lname": "tiwari",
+		"State": "lucknow",
+		"PhoneNumber": 754896,
+		"City": "bhandup",
+		"Fname": "shweta"
+	},
+	{
+		"Zip": 125,
+		"Address": "aswer",
+		"Lname": "frews",
+		"State": "nhuytrs",
+		"PhoneNumber": 74521,
+		"City": "nhytre",
+		"Fname": "nytr"
+	},
+	{
+		"Zip": 1547,
+		"Address": "maharastra",
+		"Lname": "singh",
+		"State": "maharastra",
+		"PhoneNumber": 7456,
+		"City": "mumbai",
+		"Fname": "deepak"
+	}
+]

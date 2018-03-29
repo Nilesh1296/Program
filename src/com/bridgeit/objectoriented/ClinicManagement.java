@@ -9,9 +9,6 @@
  *
  ******************************************************************************/
 
-
-
-
 package com.bridgeit.objectoriented;
 import java.io.IOException;
 import java.text.ParseException;
