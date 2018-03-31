@@ -9,21 +9,12 @@
 		"Fname": "nilesh"
 	},
 	{
-		"Zip": 456,
-		"Address": "nhytr",
-		"Lname": "tiwari",
-		"State": "lucknow",
-		"PhoneNumber": 754896,
-		"City": "bhandup",
-		"Fname": "shweta"
-	},
-	{
 		"Zip": 125,
 		"Address": "aswer",
 		"Lname": "frews",
 		"State": "nhuytrs",
 		"PhoneNumber": 74521,
-		"City": "nhytre",
+		"City": "mp",
 		"Fname": "nytr"
 	},
 	{
@@ -34,5 +25,14 @@
 		"PhoneNumber": 7456,
 		"City": "mumbai",
 		"Fname": "deepak"
+	},
+	{
+		"Zip": 124,
+		"Address": "nahur",
+		"Lname": "logo",
+		"State": "maharastre",
+		"PhoneNumber": 45896,
+		"City": "mumbai",
+		"Fname": "shubham"
 	}
 ]

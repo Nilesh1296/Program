@@ -27,6 +27,20 @@
 			"noofshare": 123,
 			"time": "15:22:50",
 			"Name": "vfrew"
+		},
+		{
+			"date": "31\/03\/2018",
+			"Shareprice": 120,
+			"noofshare": 140,
+			"time": "14:46:09",
+			"Name": "tata"
+		},
+		{
+			"date": "31\/03\/2018",
+			"Shareprice": 100,
+			"noofshare": 456,
+			"time": "14:46:54",
+			"Name": "tcs"
 		}
 	]
 }

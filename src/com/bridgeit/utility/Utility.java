@@ -1707,7 +1707,7 @@ public class Utility {
 					String key1 = (String) iterator1.next();
 				}
 				System.out.println();
-				System.out.println("total cost of " + object1.get("name") + "is"
+				System.out.println("total cost of " + object1.get("name") + "is  "
 						+    Double.parseDouble(object1.get("weight").toString())
 								* Double.parseDouble(object1.get("price").toString()));
 			}

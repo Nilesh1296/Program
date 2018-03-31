@@ -1,6 +1,6 @@
 package com.bridgeit.utility;
 
-public class LinkedList
+public class LinkedList<T>
 {
 	Node head=null, tail=null, temp, temp2, previous, new_node;
 	int elements=0;

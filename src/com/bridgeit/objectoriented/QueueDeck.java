@@ -12,6 +12,7 @@
 package com.bridgeit.objectoriented;
 
 import java.util.LinkedList;
+
 import com.bridgeit.utility.Queue;
 import com.bridgeit.utility.Utility;
 
@@ -26,7 +27,7 @@ public class QueueDeck {
 		Queue queue = new Queue();
 		int indexOfDeck = 0;
 		for (int i = 0; i < 4; i++) {
-			LinkedList<String> linkList = new LinkedList<String>();
+			LinkedList linkList = new LinkedList();
 			for (int j = 0; j < 9; j++) {
 				linkList.add(deck[indexOfDeck]);
 				indexOfDeck++;

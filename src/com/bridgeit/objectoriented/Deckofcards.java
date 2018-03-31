@@ -25,8 +25,7 @@ public class Deckofcards {
 		for (int i = 0; i < deck.length; i++) {
 			System.out.print(deck[i] + " ");
 		}
-		System.out.print(
-				"\n----------------------------------------------------------------------------------------------------------------------");
+		
 		utility.distribute(deck);
 	}
 }
