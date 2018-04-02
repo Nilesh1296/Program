@@ -1870,18 +1870,18 @@ public class Utility {
 		return false;
 	}
 
-	public static boolean check(String string) {
-		Deque12 que = new Deque12();
+	public static boolean checkPalindrome(String string) {
+		Dequeue que = new Dequeue();
 		char first, last, c;
 		boolean status = true;
 
 		for (int i = 0; i < string.length(); i++) {
 			c = string.charAt(i);
-			que.insertRear(c);
+			que.insertAtFront(c);;
 		}
-		while (que.size1() > 1) {
-			first = que.removeFront();
-			last = que.removeRear1();
+		while (que.getSize() > 1) {
+			first = que.removeAtFront();
+			last = que.removeAtRear();
 			if (first != last) {
 				status = false;
 				break;
@@ -2190,9 +2190,9 @@ public class Utility {
 		FileReader fileReader = new FileReader(file);
        
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
-		String line = bufferedReader.readLine();
-		System.out.println(line);
-		String array[] = line.split(" ");
+		String sentence = bufferedReader.readLine();
+		String line = sentence.trim();
+		String array[] = line.split("\\s+");
 		int[] arr = new int[array.length];
 		for (int i = 0; i < array.length; i++) {
 			arr[i] = Integer.parseInt(array[i]);
@@ -3018,51 +3018,53 @@ public class Utility {
 			}
 		}
 		
+	
 		public static void searchAndbookdoctor(JSONObject patients) throws FileNotFoundException, IOException, ParseException
 		{
 			Utility utility = new Utility();
-			System.out.println("Enter doctor name");
-			String doctorname =(String)utility.inputString();
-			Utility.searchDOctorByName(doctorname,patients);
-		}
-		
-		public static void searchDOctorByName(String doctorname,JSONObject patients) throws FileNotFoundException, IOException, ParseException
-		{
-			Utility utility = new Utility();
+			System.out.println("Enter the doctor name");
+			String doctorname = utility.inputString();
+			System.out.println(doctorname);
 			JSONObject doctor = null;
 			boolean doctorpresent = false;
+		
 			JSONObject jsonObjectDOctor = readFromFileDoctor("Doctorfile.json");
+			System.out.println(jsonObjectDOctor);
 			JSONArray jsonArraydoctor = (JSONArray) jsonObjectDOctor.get("doctor");
 			for(int i=0;i<jsonArraydoctor.size();i++)
 			{
-				JSONObject jsonObjectdoctor =(JSONObject)jsonArraydoctor.get(i);
-				String name = (String)jsonObjectdoctor.get("nameofdoctor");
+				 doctor =(JSONObject)jsonArraydoctor.get(i);
+				String name = (String)doctor.get("nameofdoctor");
+				System.out.println(name);
 				if(name.equals(doctorname))
 				{
 					JSONObject jsonObject = readFromFileApointment("Apointment.json");
 					JSONArray jsonArrayforapointment= (JSONArray) jsonObject.get("apointment");
+					System.out.println(jsonArrayforapointment);
+				
 					JSONObject jsonObjectapointment = new JSONObject();
 					String time = Utility.getCurrentTime();
 					String date =Utility.getCurrentDate();
-					Long id =(Long)patients.get("id");
+					Long id = (Long)patients.get("id");
 					jsonObjectapointment.put("patientid",id);
-	                jsonObjectapointment.put("doctorname",name);
-	                jsonObjectapointment.put("date", date);
-	                jsonObjectapointment.put("Time", time);
-	                jsonArrayforapointment.add(jsonObjectapointment);
-	                jsonObject.put("apointment", jsonArrayforapointment);
-	                PrintWriter pw = new PrintWriter("Apointment.json");
-	    			pw.write(jsonObject.toJSONString());
-	    			pw.flush();
-	    			pw.close();
+					jsonObjectapointment.put("doctorname",name);
+					jsonObjectapointment.put("Time", time);
+					jsonObjectapointment.put("date", date);
+					System.out.println(jsonObjectapointment);
+					jsonArrayforapointment.add(jsonObjectapointment);
+					jsonObject.put("apointment",jsonArrayforapointment);
+					PrintWriter pw = new PrintWriter("Apointment.json");
+					pw.write(jsonObject.toString());
+					pw.flush();
+					pw.close();
+					
 				}
 				
 			}
-			
-				
-			}
-			
 		}
+			
+}		
+		
 
 
 

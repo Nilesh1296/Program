@@ -13,26 +13,25 @@
  *
  ******************************************************************************/
 package com.bridgeit.datastructure;
+
 import java.io.IOException;
 import com.bridgeit.utility.LinkedListviasort;
 import com.bridgeit.utility.Utility;
 
-public class OrderList2
-{
+public class OrderList2 {
 	public static void main(String[] args) throws IOException {
-		
-		
-		LinkedListviasort sortorderlist =new LinkedListviasort();
+
+		LinkedListviasort sortorderlist = new LinkedListviasort();
 		Utility utility = new Utility();
-		sortorderlist=Utility.orderListFileReader();
-		System.out.println("Size of Lis : "+sortorderlist.size());
+		sortorderlist = Utility.orderListFileReader();
+		System.out.println("Size of Lis : " + sortorderlist.length());
 		sortorderlist.printList(sortorderlist);
 		System.out.print("\nEnter a number to search : ");
-		int search=utility.inputInteger();
+		int search = utility.inputInteger();
 		sortorderlist.search(search);
-		System.out.println("Size of Lis : "+sortorderlist.size());
-		sortorderlist=sortorderlist.printList(sortorderlist);
+		System.out.println("Size of Lis : " + sortorderlist.length());
+		sortorderlist = sortorderlist.printList(sortorderlist);
 		sortorderlist.fileWriter1();
-	
-}
+
+	}
 }

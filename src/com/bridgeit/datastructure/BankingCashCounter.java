@@ -17,7 +17,7 @@ public class BankingCashCounter {
 		
 		Utility utility = new Utility();
 		LinkedQueue linkedqueue = new LinkedQueue();
-		int amount = 50000;
+		int amount =50000;
 		int choice1;
 		do {
 			System.out.println("1 for adding into queue");

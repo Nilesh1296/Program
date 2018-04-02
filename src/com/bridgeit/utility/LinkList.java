@@ -26,7 +26,7 @@ public class LinkList
 	  Node temp = head;
 	  while(temp!=null)
 	  {
-		//  System.out.println(temp.date+" "+temp.day1+" ");
+		
 		  temp=temp.next;
 	  }
   }

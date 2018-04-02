@@ -22,6 +22,6 @@ public class AnagramStack {
 		LinkedList<Integer> listprime = new LinkedList<Integer>();
 		listprime = Utility.primeNumber(start, end);
 		Utility.anagramstatck(listprime);
-		
+
 	}
 }

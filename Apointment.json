@@ -1,0 +1,26 @@
+{
+	"apointment": [
+		{
+			"patientid": 1,
+			"doctorname": "nilesh"
+		},
+		{
+			"patientid": 7,
+			"doctorname": "nilesh"
+		},
+		{
+			"patientid": 5,
+			"doctorname": "nhytr"
+		},
+		{
+			"patientid": 12,
+			"doctorname": "nilesh"
+		},
+		{
+			"date": "02\/04\/2018",
+			"patientid": 12,
+			"Time": "14:53:33",
+			"doctorname": "nilesh"
+		}
+	]
+}

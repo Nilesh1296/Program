@@ -117,6 +117,21 @@ public class LinkedList<T>
 	}
 	
 	
+	public <T> T get(int i)
+	{
+		int position =0;
+		Node current =head;
+		while(position!=i)
+		{
+			current=current.getNext();
+			System.out.println(current.data);
+			position++;
+			
+		}
+		
+		return (T) current.data;
+		
+	}
 
 	
 	

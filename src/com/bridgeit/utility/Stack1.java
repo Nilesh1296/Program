@@ -9,28 +9,26 @@
  *
  ******************************************************************************/
 
-
-
 package com.bridgeit.utility;
 
-class Node8<T>
+class Nodeclass<T>
 {
 	
-	Node8 ref;
+	Nodeclass ref;
 	T data;
-	Node8(T data1)
+	Nodeclass(T data1)
 	{
 		this.data = (T) data1;
 	}
 }
 public class Stack1 
 {
-	Node8  firstNode;
-	Node8 lastNode;
+	Nodeclass  firstNode;
+	Nodeclass lastNode;
 
 	public <T> void add(T data)
 	{
-		Node8 newNode = new Node8(data);
+		Nodeclass newNode = new Nodeclass(data);
 		if(firstNode==null)
 		{
 			firstNode = newNode;
@@ -44,7 +42,7 @@ public class Stack1
 
 	public <T> boolean search(T dataToBeSearched)
 	{
-			Node8 current = firstNode;
+		Nodeclass current = firstNode;
 			while(current != null)
 			{
 				if(current.data.equals(dataToBeSearched))
@@ -65,8 +63,8 @@ public class Stack1
 		}
 		else if(lastNode.data.equals(dataToBedeleted))
 		{
-			Node8 currentNode = firstNode;
-			Node8 prevNode = null;
+			Nodeclass currentNode = firstNode;
+			Nodeclass prevNode = null;
 			while(currentNode != lastNode)
 			{
 				prevNode = currentNode;
@@ -77,9 +75,9 @@ public class Stack1
 		}
 		else
 		{
-			Node8 prevrefrence = null;
+			Nodeclass prevrefrence = null;
 			boolean status  = false;
-			Node8 current = firstNode;
+			Nodeclass current = firstNode;
 			
 			while(current != lastNode && !(status=(current.data.equals(dataToBedeleted))))
 			{
@@ -98,7 +96,7 @@ public class Stack1
 
 	public void itirate()
 	{
-		Node8 currentNode = firstNode;
+		Nodeclass currentNode = firstNode;
 		while(currentNode != null)
 		{
 			System.out.println(currentNode.data);
@@ -109,7 +107,7 @@ public class Stack1
 	public int size()
 	{
 		int size = 0;
-		Node8 currentNode = firstNode;
+		Nodeclass currentNode = firstNode;
 		while(currentNode != null)
 		{
 			size++;
@@ -126,7 +124,7 @@ public class Stack1
 		}
 		else
 		{
-			Node8 currentNode = firstNode;
+			Nodeclass currentNode = firstNode;
 			while(location != position)
 			{
 				currentNode = currentNode.ref;
@@ -145,8 +143,8 @@ public class Stack1
 		}
 		else
 		{
-		Node8 prevNode=null;
-		Node8 currentNode = firstNode;
+			Nodeclass prevNode=null;
+			Nodeclass currentNode = firstNode;
 		while(currentNode.ref !=null)
 		{
 			prevNode = currentNode;
@@ -187,7 +185,7 @@ public <T> T peek()
 	public <T> T get(int i)
 	{
 		int position =0;
-		Node8 current =firstNode;
+		Nodeclass current =firstNode;
 		while(position!=i)
 		{
 			current=current.ref;

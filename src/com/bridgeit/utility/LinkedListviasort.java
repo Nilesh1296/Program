@@ -158,7 +158,7 @@ public class LinkedListviasort
 		{
 			temp=head;
 			System.out.println("Ordered List is : ");
-			for(int i=0; i<size(); i++)
+			for(int i=0; i<length(); i++)
 			{
 				System.out.print(temp.getData()+" ");
 				temp=temp.getNextNode();
@@ -167,9 +167,17 @@ public class LinkedListviasort
 		}
 		
 		
-		public int size()
+		public int length()
 		{
-			return count;
+			int count=0;
+		Node current = head;
+		
+		while(current != null)
+		{ 
+			count++; 
+			current=current.getNextNode(); 
+		} 
+		return count;
 		}
 		public void fileWriter1()
 		{

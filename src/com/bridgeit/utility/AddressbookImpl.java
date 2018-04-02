@@ -13,6 +13,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import com.bridgeit.utility.Utility;
 
@@ -129,6 +130,15 @@ public class AddressbookImpl
 		}
 
 	}
+	
+	
+	public static void displayAddressbook(String filePath) throws IOException, ParseException
+    {
+	   
+		
+		
+    }
+    
 
 	/**
 	 * @param filePath

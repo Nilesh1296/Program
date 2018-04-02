@@ -21,7 +21,7 @@ public class PalindromeUsingDeque {
 		System.out.println("Program Started ");
 		System.out.println("Please Enter the String ");
 		String string = utility.inputString();
-		boolean status = Utility.check(string);
+		boolean status = Utility.checkPalindrome(string);
 		if (status)
 		{
 			System.out.println("This String is Palindrome");

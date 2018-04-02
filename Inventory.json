@@ -1,0 +1,17 @@
+{
+	"pulse": {
+		"price": 12.0,
+		"name": "hath",
+		"weight": 45.0
+	},
+	"wheat": {
+		"price": 12.0,
+		"name": "gfuj",
+		"weight": 45.0
+	},
+	"rice": {
+		"price": 14.0,
+		"name": "gtr",
+		"weight": 45.0
+	}
+}
