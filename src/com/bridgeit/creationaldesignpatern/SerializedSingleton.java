@@ -1,4 +1,4 @@
-package com.bridgeit.designpattern;
+package com.bridgeit.creationaldesignpatern;
 
 import java.io.Serializable;
 

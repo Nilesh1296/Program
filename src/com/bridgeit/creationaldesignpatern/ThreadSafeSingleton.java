@@ -1,4 +1,4 @@
-package com.bridgeit.designpattern;
+package com.bridgeit.creationaldesignpatern;
 public class ThreadSafeSingleton {
 
     private static ThreadSafeSingleton instance;

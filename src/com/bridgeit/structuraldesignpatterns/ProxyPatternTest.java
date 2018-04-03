@@ -1,10 +1,10 @@
-package com.bridgeit.designpattern;
+package com.bridgeit.structuraldesignpatterns;
 
 import com.bridgeit.utility1.CommandExecProxy;
 import com.bridgeit.utility1.CommandExecutor;
 
-public class ProxyPatternTest {
-
+public class ProxyPatternTest 
+{
 	public static void main(String[] args){
 		CommandExecutor executor = new CommandExecProxy("Pankaj", "wrong_pwd");
 		try {
@@ -15,5 +15,4 @@ public class ProxyPatternTest {
 		}
 		
 	}
-
 }

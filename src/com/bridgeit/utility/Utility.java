@@ -15,8 +15,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
 import java.util.Scanner;
@@ -1626,7 +1628,133 @@ public class Utility {
 		printWriter.close();
 
 	}
+	
+	
+	public static void writeInventoryJsonFile() throws FileNotFoundException 
+	{
+		Map<Object,Object> map;
+		Utility utility = new Utility();
+		PrintWriter printwriter = new PrintWriter("Inventory.json");
+		JSONObject jsonobject = new JSONObject();
+		JSONArray jsonArrayOfRice = new JSONArray();
+		JSONArray jsonArrayOfPulse = new JSONArray();
+		JSONArray jsonArrayOfWheat = new JSONArray();
+		System.out.println("enter number of variety you want to add to enter in inventory");
+		int numberofRice = utility.inputInteger();
+		utility.inputString();
+		for(int i=1;i<=numberofRice;i++)
+		{
+			map =new LinkedHashMap<>();
+			System.out.println("enter the name of rice " +i);
+			String ricename = utility.inputString();
+			System.out.println("enter weight of rice"  +i);
+			double weight = utility.inputDouble();
+			System.out.println("enter the price of rice "+i);
+			double price = utility.inputDouble();
+			map.put("name", ricename);
+			map.put("weight", weight);
+			map.put("price",price);
+			jsonArrayOfRice.add(map);
+			
+			
+			
+		}
+		
+		System.out.println("enter number of variety you want to add to enter in inventory");
+		int numberofPulse = utility.inputInteger();
+		utility.inputString();
+		for(int i=1;i<=numberofPulse;i++)
+		{
+			map =new LinkedHashMap<>();
+			System.out.println("enter the name of pulse " +i);
+			String pulsename = utility.inputString();
+			System.out.println("enter weight of pulse"  +i);
+			double weight = utility.inputDouble();
+			System.out.println("enter the price of pulse "+i);
+			double price = utility.inputDouble();
+			map.put("name", pulsename);
+			map.put("weight", weight);
+			map.put("price",price);
+			jsonArrayOfPulse.add(map);
+			
+			
+		}
+	   
+		
+		System.out.println("enter number of variety you want to add to enter in inventory");
+		int numberofWheat = utility.inputInteger();
+		utility.inputString();
+		for(int i=1;i<=numberofWheat;i++)
+		{
+			map =new LinkedHashMap<>();
+			System.out.println("enter the name of wheat " +i);
+			String wheatname = utility.inputString();
+			System.out.println("enter weight of wheat"  +i);
+			double weight = utility.inputDouble();
+			System.out.println("enter the price of wheat "+i);
+			double price = utility.inputDouble();
+			map.put("name", wheatname);
+			map.put("weight", weight);
+			map.put("price",price);
+			jsonArrayOfWheat.add(map);
+			
+			
+		}
+		jsonobject.put("rice",jsonArrayOfRice);
+		jsonobject.put("pulse",jsonArrayOfPulse);
+		jsonobject.put("wheat",jsonArrayOfWheat);
+		printwriter.write(jsonobject.toString());
+		printwriter.flush();
+		printwriter.close();
+	}
+	
+	public static JSONObject readFromInventoryFile(String filepath) throws FileNotFoundException, IOException, ParseException
+	{
+		Object obj = new JSONParser().parse(new FileReader(filepath));
+		JSONObject jo = (JSONObject) obj;
+		return jo;
+	}
 
+	
+	public static void inventoryData(JSONObject jsonObject)
+	{
+		JSONArray rice = (JSONArray) jsonObject.get("rice");
+		JSONArray wheat = (JSONArray) jsonObject.get("wheat");
+		JSONArray pulse = (JSONArray) jsonObject.get("pulse");
+		for(int i=0;i<rice.size();i++)
+		{
+			Map map = (Map) rice.get(i);
+			String  name = (String)map.get("name");
+			double weight = (double)map.get("weight");
+			double price = (double)map.get("price");
+			double sum = weight * price;
+			System.out.println("total price for rice of variety  " +name+ "is" +sum);
+		}
+		System.out.println();
+		
+		for(int i=0;i<pulse.size();i++)
+		{
+			Map map = (Map) pulse.get(i);
+			String  name = (String)map.get("name");
+			double weight = (double)map.get("weight");
+			double price = (double)map.get("price");
+			double sum = weight * price;
+			System.out.println("total price for pulse of variety  " +name+ "is" +sum);
+		}
+		System.out.println();
+		
+
+		for(int i=0;i<wheat.size();i++)
+		{
+			Map map = (Map) wheat.get(i);
+			String  name = (String)map.get("name");
+			double weight = (double)map.get("weight");
+			double price = (double)map.get("price");
+			double sum = weight * price;
+			System.out.println("total price for wheat of variety  " +name+ "is" +sum);
+		}
+		
+	}
 	@SuppressWarnings("unchecked")
 	public static void writeData() throws IOException {
 		File file = new File("Inventory.json");
@@ -1634,9 +1762,9 @@ public class Utility {
 
 			Utility utility = new Utility();
 			FileWriter writer = new FileWriter(file);
-			JSONObject object1 = new JSONObject();
-			JSONObject object2 = new JSONObject();
-			JSONObject object3 = new JSONObject();
+			JSONObject objectrice = new JSONObject();
+			JSONObject objectpulse = new JSONObject();
+			JSONObject objectwheat = new JSONObject();
 			String name;
 			double weight, price;
 
@@ -1648,9 +1776,9 @@ public class Utility {
 			weight = utility.inputDouble();
 			System.out.println("price of rice");
 			price = utility.inputDouble();
-			object1.put("name", name);
-			object1.put("weight", weight);
-			object1.put("price", price);
+			objectrice.put("name", name);
+			objectrice.put("weight", weight);
+			objectrice.put("price", price);
 
 			// input for pulses
 			utility.inputString();
@@ -1660,9 +1788,9 @@ public class Utility {
 			weight = utility.inputDouble();
 			System.out.println("price of pulse");
 			price = utility.inputDouble();
-			object2.put("name", name);
-			object2.put("weight", weight);
-			object2.put("price", price);
+			objectpulse.put("name", name);
+			objectpulse.put("weight", weight);
+			objectpulse.put("price", price);
 
 			// input for wheats
 			utility.inputString();
@@ -1672,15 +1800,15 @@ public class Utility {
 			weight = utility.inputDouble();
 			System.out.println("price of wheats");
 			price = utility.inputDouble();
-			object3.put("name", name);
-			object3.put("weight", weight);
-			object3.put("price", price);
+			objectwheat.put("name", name);
+			objectwheat.put("weight", weight);
+			objectwheat.put("price", price);
 
-			JSONObject items = new JSONObject();
-			items.put("rice", object1);
-			items.put("pulse", object2);
-			items.put("wheat", object3);
-			writer.write(JSONValue.toJSONString(items));
+			JSONObject allitems = new JSONObject();
+			allitems.put("rice", objectrice);
+			allitems.put("pulse", objectpulse);
+			allitems.put("wheat", objectwheat);
+			writer.write(JSONValue.toJSONString(allitems));
 			writer.flush();
 			writer.close();
 
@@ -1748,7 +1876,8 @@ public class Utility {
 
 	}
 
-	public static void stockReport() {
+	@SuppressWarnings("unchecked")
+	public static void stockReport() throws FileNotFoundException {
 		JSONArray jsonArray = new JSONArray();
 		Utility utility = new Utility();
 		System.out.println("Enter the number of company");
@@ -1777,17 +1906,8 @@ public class Utility {
 		System.out.println();
 		System.out.println("  Company Name   Shares   Price   total of each");
 		System.out.println();
-		PrintWriter printWriter = null;
-		try {
-			printWriter = new PrintWriter("StockReport.json");
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		for (int l = 0; l < number; l++) {
-			System.out.println(
-					"  " + array[l] + "        "+ share[l]+"       "+amount[l]+"     "+total[l]+"/-");
+         for (int l = 0; l < number; l++) {
+			System.out.println("      " + array[l] + "         "+ share[l]+"        "+amount[l]+"       "+total[l]+"/-");
 			JSONObject jsonObject = new JSONObject();
 			jsonObject.put("Company Name", array[l]);
 			jsonObject.put("Shares", share[l]);
@@ -1796,7 +1916,7 @@ public class Utility {
 			jsonArray.add(jsonObject);
 
 		}
-
+		PrintWriter	printWriter = new PrintWriter("StockReport.json");
 		printWriter.write(jsonArray.toJSONString());
 		printWriter.flush();
 		printWriter.close();
@@ -2931,7 +3051,7 @@ public class Utility {
 
 		}
 
-		public static java.util.Queue<JSONObject> shareTransaction()
+		public static Queue<JSONObject> shareTransaction()
 				throws FileNotFoundException, IOException, ParseException {
 			Queue<JSONObject> queue = new java.util.LinkedList();
 			JSONObject jsonObject = Utility.readFromFilestockaccount("Stockaccount.json");
@@ -2943,7 +3063,7 @@ public class Utility {
 			return queue;
 		}
 		
-		public static java.util.Stack<JSONObject> shareTransactionusingStack()
+		public static Stack<JSONObject> shareTransactionusingStack()
 				throws FileNotFoundException, IOException, ParseException {
 			Stack<JSONObject> stack = new Stack ();
 			JSONObject jsonObject = Utility.readFromFilestockaccount("Stockaccount.json");

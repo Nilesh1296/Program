@@ -1,9 +1,11 @@
-package com.bridgeit.designpattern;
+package com.bridgeit.creationaldesignpatern;
 
 import java.util.List;
 
-public class PrototypePatternTest {
+import com.bridgeit.utility1.Employees;
 
+public class PrototypePatternTest
+{
 	public static void main(String[] args) throws CloneNotSupportedException {
 		Employees emps = new Employees();
 		emps.loadData();
@@ -20,5 +22,4 @@ public class PrototypePatternTest {
 		System.out.println("empsNew List: "+list);
 		System.out.println("empsNew1 List: "+list1);
 	}
-
 }

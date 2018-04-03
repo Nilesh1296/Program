@@ -1,13 +1,13 @@
-package com.bridgeit.designpattern;
+package com.bridgeit.structuraldesignpatterns;
 
 import com.bridgeit.utility1.SocketAdapter;
 import com.bridgeit.utility1.SocketClassAdapterImpl;
 import com.bridgeit.utility1.SocketObjectAdapterImpl;
 import com.bridgeit.utility1.Volt;
 
-public class Adapterpatterntest {
-
-	public static void main(String[] args) {
+public class AdapterPattern
+{
+public static void main(String[] args) {
 		
 		testClassAdapter();
 		testObjectAdapter();

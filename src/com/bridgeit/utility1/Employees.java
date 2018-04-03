@@ -1,4 +1,4 @@
-package com.bridgeit.designpattern;
+package com.bridgeit.utility1;
 
 import java.util.ArrayList;
 import java.util.List;

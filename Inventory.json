@@ -1,17 +1,12 @@
-{
-	"pulse": {
-		"price": 12.0,
-		"name": "hath",
-		"weight": 45.0
-	},
-	"wheat": {
-		"price": 12.0,
-		"name": "gfuj",
-		"weight": 45.0
-	},
-	"rice": {
-		"price": 14.0,
-		"name": "gtr",
-		"weight": 45.0
-	}
+{"pulse":[],"rice":[]}"name":"","weight":0.0},"wheat":{"price":0.0,"name":"","weight":0.0},"rice":{"price":0.0,"name":"","weight":0.0}}
+			"price": 14.0
+		}
+	],
+	"rice": [
+		{
+			"name": "basmati",
+			"weight": 14.0,
+			"price": 15.0
+		}
+	]
 }

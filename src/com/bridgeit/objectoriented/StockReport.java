@@ -9,11 +9,13 @@
  ******************************************************************************/
 
 package com.bridgeit.objectoriented;
+import java.io.FileNotFoundException;
+
 import com.bridgeit.utility.Utility;
 
 public class StockReport {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		Utility.stockReport();
 	}
 }

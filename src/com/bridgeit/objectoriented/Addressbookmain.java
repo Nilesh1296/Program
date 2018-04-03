@@ -22,8 +22,12 @@ public class Addressbookmain {
 		boolean check = true;
 
 		do {
-			System.out.print(
-					"Enter 1 to Add , 2 to Update, 3 to delete , 4 Sort By name , 5 to sort by zip , 6 to exit : ");
+			System.out.println("Enter 1 to add the addressbook");
+			System.out.println("Enter 2 to edit the addressbook");
+			System.out.println("Enter 3 to delete the addressbook");
+			System.out.println("Enter 4 to sort by name the addressbook");
+			System.out.println("Enter 5 to sort by zip the addressbook");
+			System.out.println("Enter any choice");
 			int choise = utility.inputInteger();
 			utility.inputString();
 			switch (choise) {

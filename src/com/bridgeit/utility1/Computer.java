@@ -1,4 +1,4 @@
-package com.bridgeit.designpattern;
+package com.bridgeit.utility1;
 
 public abstract class Computer {
 	

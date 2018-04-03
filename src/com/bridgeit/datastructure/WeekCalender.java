@@ -9,7 +9,6 @@
  ******************************************************************************/
 package com.bridgeit.datastructure;
 
-import com.bridgeit.utility.LinkList;
 import com.bridgeit.utility.Utility;
 
 public class WeekCalender {

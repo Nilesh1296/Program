@@ -26,13 +26,13 @@ public class WeekCalendarStack
 	    // for display the date
 		usin1.disp1();
 		//this method use for odd day
-		int value=utility.dayCode(year, months);
+		int value=Utility.dayCode(year, months);
 		System.out.println();
 		for(int i=1;i<=day[months];i++) 
 			//for store the day 
 			usin.push(i);
 		//for display calender
-		usin.disp(value);
+		usin.disp(value,months);
 		System.out.println();
 		System.out.println("Program Ended");
 	}

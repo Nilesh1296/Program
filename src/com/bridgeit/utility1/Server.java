@@ -1,11 +1,12 @@
-package com.bridgeit.designpattern;
-public class PC extends Computer {
+package com.bridgeit.utility1;
 
+public class Server extends Computer
+{
 	private String ram;
 	private String hdd;
 	private String cpu;
 	
-	public PC(String ram, String hdd, String cpu){
+	public Server(String ram, String hdd, String cpu){
 		this.ram=ram;
 		this.hdd=hdd;
 		this.cpu=cpu;
@@ -24,5 +25,4 @@ public class PC extends Computer {
 	public String getCPU() {
 		return this.cpu;
 	}
-
 }

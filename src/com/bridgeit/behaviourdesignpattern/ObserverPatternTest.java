@@ -1,11 +1,11 @@
-package com.bridgeit.designpattern;
+package com.bridgeit.behaviourdesignpattern;
 
 import com.bridgeit.utility1.MyTopic;
 import com.bridgeit.utility1.MyTopicSubscriber;
 import com.bridgeit.utility1.Observer;
 
-public class ObserverPatternTest {
-
+public class ObserverPatternTest
+{
 	public static void main(String[] args) {
 		//create subject
 		MyTopic topic = new MyTopic();
@@ -31,6 +31,4 @@ public class ObserverPatternTest {
 		//now send message to subject
 		topic.postMessage("New Message");
 	}
-
 }
-
