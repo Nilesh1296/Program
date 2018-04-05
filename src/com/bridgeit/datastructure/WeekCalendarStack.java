@@ -26,7 +26,7 @@ public class WeekCalendarStack
 	    // for display the date
 		usin1.disp1();
 		//this method use for odd day
-		int value=Utility.dayCode(year, months);
+		int value=utility.dayCode(year, months);
 		System.out.println();
 		for(int i=1;i<=day[months];i++) 
 			//for store the day 

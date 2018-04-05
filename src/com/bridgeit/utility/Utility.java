@@ -1199,7 +1199,7 @@ public class Utility {
 		return ll2;
 	}
 
-	public static LinkedList1 addRemove(boolean status, String searchWord, LinkedList1 ll2) {
+	public static LinkedList1<String> addRemove(boolean status, String searchWord, LinkedList1<String> ll2) {
 
 		if (status != true) {
 
@@ -1248,7 +1248,7 @@ public class Utility {
 
 	}
 
-	public static void readFile(LinkedList1 l3, String searchWord, boolean status, String line) {
+	public static void readFile(LinkedList1<String> ins, String searchWord, boolean status, String line) {
 
 		try {
 			FileWriter writer = new FileWriter("abc.text", false);
@@ -1324,7 +1324,7 @@ public class Utility {
 		return ll2;
 	}
 
-	public static Integer[] sortArray(Integer[] arr, int n) {
+	public  Integer[] sortArray(Integer[] arr, int n) {
 		for (int i = 0; i < n; i++) {
 			for (int j = i + 1; j < n; j++) {
 				if (arr[i] > arr[j]) {
@@ -1947,9 +1947,9 @@ public class Utility {
 		return false;
 	}
 
-	public static LinkedList<Integer> primeNumber(int start, int end) {
+	public static LinkedList1<Integer> primeNumber(int start, int end) {
 
-		LinkedList<Integer> list = new LinkedList<Integer>();
+		LinkedList1<Integer> list = new LinkedList1<Integer>();
 		for (int a = start; a < end; a++) {
 			int number = a;
 			int count = 0;
@@ -2012,15 +2012,16 @@ public class Utility {
 		return status;
 
 	}
-
-	public static void leafYear(int year) {
+ 
+	
+	public static void leapYear(int year) {
 		int day[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
 			day[2] = 29;
 		}
 	}
 
-	public static int dayCode(int year, int months) {
+	public int dayCode(int year, int months) {
 		int m, x, d, y;
 		int day = 1;
 		y = year - (14 - months) / 12;
@@ -2031,22 +2032,31 @@ public class Utility {
 		return d;
 	}
 
-	public static void store(int daycode, int months) {
-		LinkList list = new LinkList();
+	public <T> void store(int daycode, int months,int year) {
+		LinkedList1<Integer> weeklist = new LinkedList1<Integer>();
 		char week[] = { ' ', 'S', 'M', 'T', 'W', 'T', 'F', 'S' };
+		String month[] = { " ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 		int day[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		int k = 1;
+		System.out.println("     " + month[months] + " " + year);
+		System.out.println("su mo tu we th fr sat");
+		for (int i = 1; i <= day[months]; i++)
+		{
+			weeklist.add(i);
+		}
+		for (int i = 0; i < daycode; i++) {
+			System.out.print("   ");
+		}
 		for (int i = 1; i <= day[months]; i++) {
-			list.insert(i, week[k]);
-			k++;
+		   
+			weeklist.displayweekday(i);			
 			if ((i + daycode) % 7 == 0 || i == day[months]) {
-				k = 1;
+				System.out.println();
 			}
 		}
-		list.display();
+		
 	}
 
-	public static void print(int year, int d, int months) {
+	public void print(int year, int d, int months) {
 		int day[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		String month[] = { " ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 		System.out.println("     " + month[months] + " " + year);
@@ -2066,9 +2076,7 @@ public class Utility {
 	public static void print1(int d, int months, int year) {
 		int day[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		String month[] = { " ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-		System.out.println("     " + month[months] + " " + year);
-		System.out.println("su mo tu we th fr sat");
-		for (int i = 0; i < d; i++) {
+				for (int i = 0; i < d; i++) {
 			System.out.print("   ");
 		}
 		for (int i = 1; i <= day[months]; i++) {
@@ -2145,36 +2153,41 @@ public class Utility {
 		}
 	}
 
-	public static void anagramstatck(LinkedList listprime) {
-		LinkedList<String> listanagram = new LinkedList<String>();
+	
+	/**
+	 * @param listprime
+	 */
+	public static  <T> void anagramstatck(LinkedList1<T> listprime) {
+		LinkedList1<T> listanagram = new LinkedList1<T>();
 
-		for (int i = 0; i < listprime.size() - 1; i++) {
-			for (int j = i + 1; j < listprime.size(); j++) {
-				if (listprime.get(i) != null) {
-					if (Utility.anagramm((Integer) listprime.get(i), (Integer) listprime.get(j))) {
-						listanagram.add(listprime.get(i) + "-" + listprime.get(j));
-
+		for (int i = 0; i < listprime.length() - 1; i++) {
+			for (int j = i + 1; j < listprime.length(); j++) {
+				if (listprime.dataAtPosition(i) != null) {
+					if (Utility.anagramm((Integer) listprime.dataAtPosition(i), (Integer) listprime.dataAtPosition(j))) {
+						listanagram.add((listprime.dataAtPosition(i))); 
+                        System.out.print(" ");
+                        listanagram.add((listprime.dataAtPosition(j)));
 					}
 				}
 			}
 		}
-		Stack1 stack = new Stack1();
-		for (int i = 0; i < listanagram.size(); i++) {
-			stack.push(listanagram.get(i));
+		Stack1<T> stack = new Stack1<T>();
+		for (int i = 0; i < listanagram.length(); i++) {
+			stack.push(listanagram.dataAtPosition(i));
 		}
-		String[] array = new String[stack.size()];
+		int[] array = new int[stack.size()];
 		for (int i = 0; i < stack.size(); i++) {
-			array[i] = (String) stack.get(i);
+			array[i] =  (int) stack.get(i);
 		}
 		for (int i = array.length - 1; i >= 0; i--) {
-			System.out.println(array[i] + " ");
+			System.out.println(array[i]+" ");
 		}
 
 	}
 
-	public static void checkArithmeticExpression(String expression) {
+	public static <T> void checkArithmeticExpression(String expression) {
 		char chararray[] = expression.toCharArray();
-		Stack1 stack = new Stack1();
+		Stack1<String> stack = new Stack1<String>();
 		for (int i = 0; i < chararray.length; i++) {
 			if (chararray[i] == '(') {
 				stack.push("(");
@@ -2211,25 +2224,27 @@ public class Utility {
 		Utility.print1(d, month, year);
 	}
 
-	public static void primeAnagramQueueController() {
+	public static <T> void primeAnagramQueueController() {
 		int start = 1;
 		int end = 1000;
-		LinkedList<Integer> list = new LinkedList<Integer>();
-		list = Utility.primeNumber(start, end);
-		LinkedList<String> list2 = new LinkedList<String>();
-		for (int i = 0; i < list.size(); i++) {
-			for (int j = i + 1; j < list.size(); j++) {
-				if (list.get(i) != null) {
-					if (Utility.anagramm((Integer) list.get(i), (Integer) list.get(j))) {
-						list2.add(list.get(i) + "-" + list.get(j));
+		LinkedList1<Integer> list = new LinkedList1<Integer>();
+		list =  Utility.primeNumber(start, end);
+		LinkedList1<T> listanagram = new LinkedList1<T>();
+		for (int i = 0; i < list.length(); i++) {
+			for (int j = i + 1; j < list.length(); j++) {
+				if (list.dataAtPosition(i) != null) {
+					if (Utility.anagramm((Integer) list.dataAtPosition(i), (Integer) list.dataAtPosition(j))) {
+						listanagram.add((listanagram.dataAtPosition(i))); 
+                        System.out.print(" ");
+                        listanagram.add((listanagram.dataAtPosition(j)));
 
 					}
 				}
 			}
 		}
 		Queue1<String> queue = new Queue1<String>();
-		for (int i = 0; i < list2.size(); i++) {
-			queue.enqueue(list2.get(i));
+		for (int i = 0; i < listanagram.length(); i++) {
+			queue.enqueue(listanagram.dataAtPosition(i));
 		}
 		queue.getelement();
 	}
@@ -2276,35 +2291,36 @@ public class Utility {
 		}
 	}
 
-	public static String fileReader() throws IOException {
+	public  String fileReader() throws IOException {
 
-		LinkedList1 linkedlistorder = new LinkedList1();
-		FileReader fileReader = new FileReader("abc.text");
+		LinkedList1<String> linkedlistorder = new LinkedList1<String>();
+		FileReader fileReader = new FileReader("Unorderlist.text");
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
 		String line = bufferedReader.readLine();
 		String array[] = line.split(" ");
 		for (int i = 0; i < array.length; i++) {
 			linkedlistorder.add(array[i]);
 		}
-
+        bufferedReader.close();
 		return line;
 
 	}
 
-	public static void fileWriter(String searchWord, LinkedList1 linkedlistunorder, String line)
+	
+	public static void fileWriter(String searchWord, LinkedList1<String> linkedlistunorder, String line)
 
 	{
 		boolean status = linkedlistunorder.search(searchWord);
-		LinkedList1 l3 = new LinkedList1();
-		l3 = Utility.addRemove(status, searchWord, linkedlistunorder);
+		LinkedList1<String> insertionlinkedlist = new LinkedList1<String>();
+		insertionlinkedlist = Utility.addRemove(status, searchWord, linkedlistunorder);
 
-		l3.display();
-		Utility.readFile(l3, searchWord, status, line);
+		insertionlinkedlist.display();
+		Utility.readFile(insertionlinkedlist, searchWord, status, line);
 
 	}
 
-	public static LinkedListviasort orderListFileReader() throws IOException {
-		 LinkedListviasort sortlist = new LinkedListviasort();
+	public static LinkedList1<Integer> orderListFileReader() throws IOException {
+		 LinkedList1<Integer> sortlist = new LinkedList1<Integer>();
 		File file = new File("pqrst.text");
 		file.createNewFile();
 		FileReader fileReader = new FileReader(file);
@@ -2333,7 +2349,7 @@ public class Utility {
 
 		for(int i=0;i<arr.length;i++)
 		{
-			sortlist.push(arr[i]);
+			sortlist.add(arr[i]);
 		}
        return sortlist;
 	}

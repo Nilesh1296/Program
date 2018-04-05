@@ -1,50 +1,33 @@
 package com.bridgeit.utility;
 
-class Node
+class Node<T>
 {
-	String i;
-	int j;
-	Node ref;
-	Node(int j)
+	Node<T> ref;
+	T data;
+	int date ;
+	char day1;
+	Node<T> next;
+	Node(T data1)
 	{
-		this.j = j;
-		ref=null;
+		this.data = (T) data1;
 	}
-	Node(String i)
+	 Node(int value, char arr) 
 	{
-		this.i = i;
-		ref=null;
-	}
-	Node(String i,Node ref)
-	{
-		this.i=i;
-		this.ref=null;
+		  date=value;
+		  day1=arr;
+		  ref=null;	
 	}
 }
-public class LinkedList1
+public class LinkedList1<T>
 {
-	Node first;
-	Node last;
-	public void add(String i)
+	Node<T> first;
+	Node<T> last;
+	public  void add(T data)
 	{
-		Node element = new Node(i);
+		Node<T> element = new Node<T>(data);
 		if(first == null)
 		{
-			first = element;
-		}
-		else
-		{
-			last.ref = element;
-		}
-		last = element;
-	}
-	
-	public void add(int j)
-	{
-		Node element = new Node(j);
-		if(first == null)
-		{
-			first = element;
+			first =   element;
 		}
 		else
 		{
@@ -55,25 +38,25 @@ public class LinkedList1
 	
 	void iterate()
 	{
-		Node current = first;
+		Node<T> current = first;
 		while(current != null)
 		{
-			System.out.println(current.i);
+			System.out.println(current.data);
 			current = current.ref;
 		}
 	}
-	public boolean remove(String data)
+	public boolean remove(T data)
 	{
 		boolean status = false;
-		if(first.i.equals(data))
+		if(first.data.equals(data))
 		{
 			first = first.ref;
 			status = true;
 		}
-		else if(last.i.equals(data))
+		else if(last.data.equals(data))
 		{
-			Node prev= null;
-			Node current = first;
+			Node<T> prev= null;
+			Node<T> current = first;
 			while(current.ref != null)
 			{
 				prev = current;
@@ -85,9 +68,9 @@ public class LinkedList1
 		}
 		else
 		{
-			Node prev= null;
-			Node current = first;
-			while(current != null && !(status = (current.i.equals(data))))
+			Node<T> prev= null;
+			Node<T> current = first;
+			while(current != null && !(status = (current.data.equals(data))))
 			{
 				prev = current;
 				current = current.ref;
@@ -102,13 +85,13 @@ public class LinkedList1
 	}
 	
 
-	public boolean search(String searchWord)
+	public boolean search(T searchWord)
 	{
-		Node current = first;
+		Node<T> current = first;
 		while(current!=null)
 		{ 
 			System.out.println();
-	      if(searchWord.equals(current.i))
+	      if(searchWord.equals(current.data))
 	      { 
 	    	  return true;
 	      }
@@ -120,15 +103,15 @@ public class LinkedList1
 		
 	}
 	
-	 
+
 	public String display()
 	{
 		String str=" ";
-		Node current = first;
+		Node<T> current = first;
 		while(current != null)
 		{
-			System.out.print(current.i+" ");
-			str=str+current.i;
+			System.out.print(current.data+" ");
+			str=str+current.data;
 			current = current.ref;
 		}
 		return str;
@@ -136,19 +119,82 @@ public class LinkedList1
 	
 	public int length()
 	{
-		int count=0;
-	Node current = first;
+		 int count=0;
+	Node<T> current = first;
 	
 	while(current != null)
 	{ 
 		count++; 
 		current=current.ref; 
 	} 
-	return count;
+	return  count;
 	}
 	
-	
+	public  T dataAtPosition(int data)
+	{
+		int location = 0;
+		if(data >= this.length())
+		{
+			return null;
+		}
+		else
+		{
+			Node<T> currentNode = first;
+			while(location != data)
+			{
+			
+				currentNode = currentNode.ref;
+				location++;
+			}
+			
+			return  (T) currentNode.data;
+		}
 	}
+	
+	public void displayweekday(int data)
+	{
+		int location = 1;
+		
+			Node<T> currentNode = first;
+			while(location != data)
+			{
+			
+				currentNode = currentNode.ref;
+				location++;
+			}
+			if(data<10)
+			{
+				System.out.print("0"+currentNode.data+" ");
+			}
+			else
+			{
+				System.out.print(currentNode.data+" ");
+			}
+			
+		}
+	
+	
+	 public void insert(int value,char arr)
+	  {
+		Node<T> node = new Node<T>(value,arr);
+		node.ref=first;
+		first=node;
+	  }
+
+	 public void sort()
+	 {
+		 for(int i=1;i<this.length();i++)
+		 {
+			 for(int j=i+1;j<this.length()+1;j++)
+			 {
+				 if((Integer)this.dataAtPosition(i)>(Integer)this.dataAtPosition(j))
+				 {
+					 
+				 }
+			 }
+		 }
+	 }
+}
 	
 	
 

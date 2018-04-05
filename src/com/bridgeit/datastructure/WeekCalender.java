@@ -1,6 +1,6 @@
 /******************************************************************************
   
- *  Purpose: Print the calender by using month and year by 
+ *  Purpose: Print the calender by using month and year 
  *
  *  @author  Nilesh singh
  *  @version 1.0
@@ -24,11 +24,9 @@ public class WeekCalender {
 		int year = utility.inputInteger();
 		System.out.println("Please Enter the months");
 		months = utility.inputInteger();
-		Utility.leafYear(year);
-		int daycode = Utility.dayCode(year, months);
-		Utility.store(daycode, months);
-		Utility.print(year, daycode, months);
-
+		Utility.leapYear(year);
+		int daycode = utility.dayCode(year, months);
+		utility.store(daycode, months,year);
 		System.out.println();
 
 	}

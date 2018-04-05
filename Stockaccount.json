@@ -1,46 +1,18 @@
 {
 	"stock": [
 		{
-			"date": "03\/04\/2018",
-			"Shareprice": 18,
+			"date": "04\/04\/2018",
+			"Shareprice": 16,
+			"noofshare": 45,
+			"time": "14:59:18",
+			"Name": "nilesh"
+		},
+		{
+			"date": "04\/04\/2018",
+			"Shareprice": 15,
 			"noofshare": 14,
-			"time": "10:06:29",
-			"Name": "fl"
-		},
-		{
-			"date": "03\/04\/2018",
-			"Shareprice": 14,
-			"noofshare": 47,
-			"time": "10:06:39",
-			"Name": "hy"
-		},
-		{
-			"date": "03\/04\/2018",
-			"Shareprice": 456,
-			"noofshare": 78,
-			"time": "10:17:00",
-			"Name": "nihal"
-		},
-		{
-			"date": "03\/04\/2018",
-			"Shareprice": 789,
-			"noofshare": 456,
-			"time": "10:19:39",
-			"Name": "derw"
-		},
-		{
-			"date": "03\/04\/2018",
-			"Shareprice": 45,
-			"noofshare": 78,
-			"time": "10:28:16",
-			"Name": "shreya"
-		},
-		{
-			"date": "03\/04\/2018",
-			"Shareprice": 49,
-			"noofshare": 48,
-			"time": "10:30:36",
-			"Name": "nrety"
+			"time": "15:05:19",
+			"Name": "frew"
 		}
 	]
 }

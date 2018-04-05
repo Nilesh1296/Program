@@ -15,23 +15,24 @@
 package com.bridgeit.datastructure;
 
 import java.io.IOException;
-import com.bridgeit.utility.LinkedListviasort;
+
+import com.bridgeit.utility.LinkedList1;
 import com.bridgeit.utility.Utility;
 
 public class OrderList2 {
 	public static void main(String[] args) throws IOException {
 
-		LinkedListviasort sortorderlist = new LinkedListviasort();
+		LinkedList1<Integer> sortorderlist = new LinkedList1<Integer>();
 		Utility utility = new Utility();
 		sortorderlist = Utility.orderListFileReader();
 		System.out.println("Size of Lis : " + sortorderlist.length());
-		sortorderlist.printList(sortorderlist);
+		sortorderlist.display();
 		System.out.print("\nEnter a number to search : ");
 		int search = utility.inputInteger();
 		sortorderlist.search(search);
 		System.out.println("Size of Lis : " + sortorderlist.length());
-		sortorderlist = sortorderlist.printList(sortorderlist);
-		sortorderlist.fileWriter1();
+	/*	sortorderlist = sortorderlist.printList(sortorderlist);
+		sortorderlist.fileWriter1();*/
 
 	}
 }

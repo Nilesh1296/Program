@@ -1,8 +1,7 @@
 /******************************************************************************
   
- *   Stack implementation using generic
+ *  Purpose :Stack implementation using generic method
  *   
- *
  *  @author  Nilesh singh
  *  @version 1.0
  *  @since   08-03-2017
@@ -14,21 +13,21 @@ package com.bridgeit.utility;
 class Nodeclass<T>
 {
 	
-	Nodeclass ref;
+	Nodeclass<T> ref;
 	T data;
 	Nodeclass(T data1)
 	{
 		this.data = (T) data1;
 	}
 }
-public class Stack1 
+public class Stack1<T> 
 {
-	Nodeclass  firstNode;
-	Nodeclass lastNode;
+	Nodeclass<T>  firstNode;
+	Nodeclass<T> lastNode;
 
-	public <T> void add(T data)
+	public T add(T data)
 	{
-		Nodeclass newNode = new Nodeclass(data);
+		Nodeclass<T> newNode = new Nodeclass<T>(data);
 		if(firstNode==null)
 		{
 			firstNode = newNode;
@@ -38,11 +37,12 @@ public class Stack1
 			lastNode.ref = newNode;
 		}
 		lastNode = newNode;
+		return data;
 	}
 
-	public <T> boolean search(T dataToBeSearched)
+	public  boolean search(T dataToBeSearched)
 	{
-		Nodeclass current = firstNode;
+		Nodeclass<T> current = firstNode;
 			while(current != null)
 			{
 				if(current.data.equals(dataToBeSearched))
@@ -54,7 +54,7 @@ public class Stack1
 			return false;
 	}
 
-	public <T> boolean delete(T dataToBedeleted)
+	public boolean delete(T dataToBedeleted)
 	{
 		if(firstNode.data.equals(dataToBedeleted))
 		{
@@ -63,8 +63,8 @@ public class Stack1
 		}
 		else if(lastNode.data.equals(dataToBedeleted))
 		{
-			Nodeclass currentNode = firstNode;
-			Nodeclass prevNode = null;
+			Nodeclass<T> currentNode = firstNode;
+			Nodeclass<T> prevNode = null;
 			while(currentNode != lastNode)
 			{
 				prevNode = currentNode;
@@ -75,9 +75,9 @@ public class Stack1
 		}
 		else
 		{
-			Nodeclass prevrefrence = null;
+			Nodeclass<T> prevrefrence = null;
 			boolean status  = false;
-			Nodeclass current = firstNode;
+			Nodeclass<T> current = firstNode;
 			
 			while(current != lastNode && !(status=(current.data.equals(dataToBedeleted))))
 			{
@@ -96,7 +96,7 @@ public class Stack1
 
 	public void itirate()
 	{
-		Nodeclass currentNode = firstNode;
+		Nodeclass<T> currentNode = firstNode;
 		while(currentNode != null)
 		{
 			System.out.println(currentNode.data);
@@ -107,7 +107,7 @@ public class Stack1
 	public int size()
 	{
 		int size = 0;
-		Nodeclass currentNode = firstNode;
+		Nodeclass<T> currentNode = firstNode;
 		while(currentNode != null)
 		{
 			size++;
@@ -115,7 +115,7 @@ public class Stack1
 		}
 		return size;
 	}
-	public <T> T dataAtPosition(int position)
+	public  T dataAtPosition(int position)
 	{
 		int location = 0;
 		if(position >= this.size())
@@ -124,7 +124,7 @@ public class Stack1
 		}
 		else
 		{
-			Nodeclass currentNode = firstNode;
+			Nodeclass<T> currentNode = firstNode;
 			while(location != position)
 			{
 				currentNode = currentNode.ref;
@@ -134,7 +134,7 @@ public class Stack1
 			return  (T) currentNode.data;
 		}
 	}
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	
 	public void deletelast()
 	{
 		if(this.size()==1)
@@ -143,8 +143,8 @@ public class Stack1
 		}
 		else
 		{
-			Nodeclass prevNode=null;
-			Nodeclass currentNode = firstNode;
+			Nodeclass<T> prevNode=null;
+			Nodeclass<T> currentNode = firstNode;
 		while(currentNode.ref !=null)
 		{
 			prevNode = currentNode;
@@ -154,19 +154,27 @@ public class Stack1
 		lastNode.ref = null;
 		}
 	}
-	public <T> void push(T data)
+	public  void push(T data)
 	{
-		this.add(data);
+		this.add((T) data);
+	}
+	
+	public T pushdata(T data)
+	{
+		firstNode.data= data;
+		this.add((T) data);
+		return data;
+		
 	}
 
-	public <T> T pop()
+	public  T pop()
 	{
 		T data =(T) lastNode.data;
 		this.deletelast();
 		return data;
 	}
 
-public <T> T peek()
+    public  T peek()
 	{
 		return (T) lastNode.data;
 	}
@@ -182,10 +190,10 @@ public <T> T peek()
 		}	
 	}
 	
-	public <T> T get(int i)
+	public  T get(int i)
 	{
 		int position =0;
-		Nodeclass current =firstNode;
+		Nodeclass<T> current =firstNode;
 		while(position!=i)
 		{
 			current=current.ref;

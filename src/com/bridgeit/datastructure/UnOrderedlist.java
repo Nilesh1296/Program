@@ -13,17 +13,18 @@
  ******************************************************************************/
 
 package com.bridgeit.datastructure;
+
 import java.io.IOException;
 
 import com.bridgeit.utility.LinkedList1;
 import com.bridgeit.utility.Utility;
 
 public class UnOrderedlist {
-	
+
 	public static void main(String args[]) throws IOException {
-		LinkedList1 linkedlistunorder = new LinkedList1();
+		LinkedList1<String> linkedlistunorder = new LinkedList1<String>();
 		Utility utility = new Utility();
-		String sentence = Utility.fileReader();
+		String sentence = utility.fileReader();
 		String line = sentence.trim();
 		String array[] = line.split("\\s+");
 		for (int i = 0; i < array.length; i++) {
@@ -32,6 +33,6 @@ public class UnOrderedlist {
 		System.out.println("Enter the searchword to be found");
 		String searchWord = utility.inputString();
 		Utility.fileWriter(searchWord, linkedlistunorder, line);
-		
+
 	}
 }

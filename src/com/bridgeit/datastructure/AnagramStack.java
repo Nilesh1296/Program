@@ -11,7 +11,7 @@
 
 package com.bridgeit.datastructure;
 
-import java.util.LinkedList;
+import com.bridgeit.utility.LinkedList1;
 import com.bridgeit.utility.Utility;
 
 public class AnagramStack {
@@ -19,7 +19,7 @@ public class AnagramStack {
 
 		int start = 1;
 		int end = 1000;
-		LinkedList<Integer> listprime = new LinkedList<Integer>();
+		LinkedList1<Integer> listprime = new LinkedList1<Integer>();
 		listprime = Utility.primeNumber(start, end);
 		Utility.anagramstatck(listprime);
 

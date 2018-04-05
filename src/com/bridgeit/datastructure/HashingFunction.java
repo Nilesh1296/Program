@@ -33,7 +33,7 @@ public class HashingFunction {
 		}
 		System.out.println();
 		System.out.println("The sorted array are");
-		Utility.sortArray(arr, n);
+		utility.sortArray(arr, n);
 		Utility.put(arr);
 		System.out.println("Enter a number to be search");
 		String searchnumber = utility.inputString();

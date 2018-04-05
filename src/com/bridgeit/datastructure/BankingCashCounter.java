@@ -10,14 +10,16 @@
  ******************************************************************************/
 
 package com.bridgeit.datastructure;
+
 import com.bridgeit.utility.LinkedQueue;
 import com.bridgeit.utility.Utility;
+
 public class BankingCashCounter {
 	public static void main(String args[]) {
-		
+
 		Utility utility = new Utility();
 		LinkedQueue linkedqueue = new LinkedQueue();
-		int amount =50000;
+		int amount = 50000;
 		int choice1;
 		do {
 			System.out.println("1 for adding into queue");
@@ -32,7 +34,7 @@ public class BankingCashCounter {
 				System.out.println("Enter any number for insert into the queue");
 				int number = utility.inputInteger();
 				linkedqueue.insert(number);
-				System.out.println("The size is" + linkedqueue.size());
+				System.out.println("The size is   " + linkedqueue.size());
 				break;
 
 			case 2:
@@ -49,17 +51,29 @@ public class BankingCashCounter {
 				break;
 
 			case 3:
-				if (linkedqueue.size() != 0) {
+				if (linkedqueue.size() != 0) 
+				{
 
 					System.out.println("Enter the withdraw amount");
 					int withdrawamount = utility.inputInteger();
-					amount = amount - withdrawamount;
-					System.out.println("The total amount in bank is: " + amount);
-					linkedqueue.delete();
-					break;
-				} else {
-					System.out.println("Enter the person in the queue");
+					if (withdrawamount < amount) 
+					{
+						amount = amount - withdrawamount;
+						System.out.println("The total amount in bank is: " + amount);
+						linkedqueue.delete();
+						break;
+					}
+					else
+					{
+						System.out.println("Insufficient balance please first deposit");
+						linkedqueue.delete();
+						break;
+					}
 				}
+				    else
+				      {
+					  System.out.println("Enter the person in the queue");
+				      }
 
 			case 4: {
 				int length = linkedqueue.size();
