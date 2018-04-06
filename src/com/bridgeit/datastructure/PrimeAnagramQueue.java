@@ -14,7 +14,7 @@ import com.bridgeit.utility.Utility;
 
 public class PrimeAnagramQueue {
 	public static void main(String[] args) {
-
-		Utility.primeAnagramQueueController();
+		Utility utility = new Utility();
+		utility.primeAnagramQueueController();
 	}
 }

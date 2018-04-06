@@ -1,16 +1,28 @@
+/******************************************************************************
+  
+ *  Purpose: Print the calender of the given month  by using month and year by 
+ *  using stack
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   12-03-2018
+ *
+ ******************************************************************************/
+
 package com.bridgeit.utility;
 
-public class Node<T> {
+class NodeStack<T> {
 	T data;
-	Node<T> next;
+	NodeStack<T> next;
 
 }
 
 public class UsingStack<T> {
-	Node<T> head;
+	NodeStack<T> head;
+	NodeStack<T> temp;
 
 	public void push(T value) {
-		Node<T> temp = new Node<T>();
+		NodeStack<T> temp = new NodeStack<T>();
 		temp.data = value;
 		temp.next = null;
 
@@ -18,7 +30,7 @@ public class UsingStack<T> {
 			head = temp;
 			return;
 		}
-		Node<T> temp1 = head;
+		NodeStack<T> temp1 = head;
 		while (temp1.next != null) {
 			temp1 = temp1.next;
 		}
@@ -33,7 +45,7 @@ public class UsingStack<T> {
 				System.out.print("       ");
 			}
 		}
-		Node<T> temp = head;
+		NodeStack<T> temp = head;
 		int day[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		for (int l = 0; l < day[months]; l++) {
 
@@ -57,7 +69,7 @@ public class UsingStack<T> {
 	}
 
 	public void disp1() {
-		Node<T> temp = head;
+		NodeStack<T> temp = head;
 
 		while (temp != null) {
 			System.out.print(temp.data + "    ");

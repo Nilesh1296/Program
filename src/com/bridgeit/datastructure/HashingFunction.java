@@ -12,15 +12,14 @@
 package com.bridgeit.datastructure;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import com.bridgeit.utility.LinkedList1;
 import com.bridgeit.utility.Utility;
 
 public class HashingFunction {
 	public static void main(String[] args) throws IOException {
 		Utility utility = new Utility();
-		LinkedList<String> listofnumber = new LinkedList<String>();
-		LinkedList1 linkedhashmap = new LinkedList1();
+		LinkedList1<String> listofnumber = new LinkedList1<String>();
+	
 		String sentence = Utility.hashmapFileReader();
 		String line = sentence.trim();
 		String[] strarray = line.split("\\s+");
@@ -28,19 +27,19 @@ public class HashingFunction {
 		Integer arr[] = new Integer[strarray.length];
 		for (int i = 0; i < strarray.length; i++) {
 			listofnumber.add(strarray[i]);
-			linkedhashmap.add(strarray[i]);
-			arr[i] = Integer.parseInt(listofnumber.get(i));
+			arr[i] =Integer.parseInt(listofnumber.dataAtPosition(i));
 		}
 		System.out.println();
 		System.out.println("The sorted array are");
-		utility.sortArray(arr, n);
-		Utility.put(arr);
+		Integer[] sortarray=new Integer[strarray.length];
+		sortarray =utility.sortArray(arr, n);
+		Utility.put(sortarray);
 		System.out.println("Enter a number to be search");
 		String searchnumber = utility.inputString();
-		boolean status = linkedhashmap.search(searchnumber);
-		Utility.addRemove2(status, searchnumber, linkedhashmap, line);
-		linkedhashmap.display();
-		Utility.readFile1(linkedhashmap, searchnumber, status, line);
+		boolean status = listofnumber.search(searchnumber);
+		Utility.addRemove2(status, searchnumber, listofnumber, line);
+		listofnumber.display();
+		Utility.readFile1(listofnumber, searchnumber, status, line);
 
 	}
 }

@@ -19,9 +19,10 @@ public class AnagramStack {
 
 		int start = 1;
 		int end = 1000;
+		Utility utility = new Utility();
 		LinkedList1<Integer> listprime = new LinkedList1<Integer>();
-		listprime = Utility.primeNumber(start, end);
-		Utility.anagramstatck(listprime);
+		listprime = utility.primeNumber(start, end);
+		utility.anagramstatck(listprime);
 
 	}
 }

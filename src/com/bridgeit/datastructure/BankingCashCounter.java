@@ -11,14 +11,14 @@
 
 package com.bridgeit.datastructure;
 
-import com.bridgeit.utility.LinkedQueue;
+import com.bridgeit.utility.QueueImpl;
 import com.bridgeit.utility.Utility;
 
 public class BankingCashCounter {
-	public static void main(String args[]) {
+	public static <T> void main(String args[]) {
 
 		Utility utility = new Utility();
-		LinkedQueue linkedqueue = new LinkedQueue();
+		QueueImpl<Integer> queue = new QueueImpl<Integer>();
 		int amount = 50000;
 		int choice1;
 		do {
@@ -33,25 +33,25 @@ public class BankingCashCounter {
 			case 1:
 				System.out.println("Enter any number for insert into the queue");
 				int number = utility.inputInteger();
-				linkedqueue.insert(number);
-				System.out.println("The size is   " + linkedqueue.size());
+				queue.enqueue(number);
+				System.out.println("The size is   " + queue.size());
 				break;
 
 			case 2:
-				if (linkedqueue.size() != 0) {
+				if (queue.size() != 0) {
 
 					System.out.println("Enter the deposited amount");
 					int depositedamount = utility.inputInteger();
 					amount = amount + depositedamount;
 					System.out.println("The total deposited amount is" + amount);
-					linkedqueue.delete();
+				    queue.delete();
 				} else {
 					System.out.println("Enter the person in the queue");
 				}
 				break;
 
 			case 3:
-				if (linkedqueue.size() != 0) 
+				if (queue.size() != 0) 
 				{
 
 					System.out.println("Enter the withdraw amount");
@@ -60,13 +60,13 @@ public class BankingCashCounter {
 					{
 						amount = amount - withdrawamount;
 						System.out.println("The total amount in bank is: " + amount);
-						linkedqueue.delete();
+						queue.delete();
 						break;
 					}
 					else
 					{
 						System.out.println("Insufficient balance please first deposit");
-						linkedqueue.delete();
+						queue.delete();
 						break;
 					}
 				}
@@ -76,7 +76,7 @@ public class BankingCashCounter {
 				      }
 
 			case 4: {
-				int length = linkedqueue.size();
+				int length = queue.size();
 				System.out.println("The length of the " + length);
 			}
 

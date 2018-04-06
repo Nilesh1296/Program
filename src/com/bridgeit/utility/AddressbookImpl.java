@@ -6,9 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.Set;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -57,7 +55,6 @@ public class AddressbookImpl
 
 		JSONArray jsonArray = new JSONArray();
 		jsonArray = jsonFileReader("Addressbook.json");
-		Iterator<?> iterator = jsonArray.iterator();
 		JSONObject jsonObjectaddressbook = new JSONObject();
 		System.out.println("\nEnter your first name : ");
 		String fname = utility.inputString();
@@ -92,6 +89,7 @@ public class AddressbookImpl
 	/**
 	 * @param filePath
 	 */
+	@SuppressWarnings("unchecked")
 	public void edit(String filePath) {
 
 		JSONArray jsonArrayaddressbook = new JSONArray();
@@ -130,6 +128,7 @@ public class AddressbookImpl
 		}
 
 	}
+	
 	
 	
 	public static void displayAddressbook(String filePath) throws IOException, ParseException

@@ -32,7 +32,7 @@ public class UnOrderedlist {
 		}
 		System.out.println("Enter the searchword to be found");
 		String searchWord = utility.inputString();
-		Utility.fileWriter(searchWord, linkedlistunorder, line);
+		utility.fileWriter(searchWord, linkedlistunorder, line);
 
 	}
 }

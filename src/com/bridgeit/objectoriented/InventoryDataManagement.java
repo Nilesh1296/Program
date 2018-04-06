@@ -14,7 +14,7 @@ public class InventoryDataManagement
   {
 	  Utility utility = new Utility();
 	  Utility.writeInventoryJsonFile();
-	  JSONObject jsonObject = Utility.readFromInventoryFile("Inventory.json");
+	  JSONObject jsonObject = utility.readFromInventoryFile("Inventory.json");
 	  Utility.inventoryData(jsonObject);
   }
 }

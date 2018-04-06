@@ -20,7 +20,7 @@ public class Calendar1 {
 		int month = utility.inputInteger();
 		System.out.println("Enter the year");
 		int year = utility.inputInteger();
-		Utility.printmonthofcalendar(month, year);
+		utility.printmonthofcalendar(month, year);
 	}
 	}
 

@@ -24,15 +24,28 @@ public class OrderList2 {
 
 		LinkedList1<Integer> sortorderlist = new LinkedList1<Integer>();
 		Utility utility = new Utility();
-		sortorderlist = Utility.orderListFileReader();
-		System.out.println("Size of Lis : " + sortorderlist.length());
-		sortorderlist.display();
-		System.out.print("\nEnter a number to search : ");
-		int search = utility.inputInteger();
-		sortorderlist.search(search);
-		System.out.println("Size of Lis : " + sortorderlist.length());
-	/*	sortorderlist = sortorderlist.printList(sortorderlist);
-		sortorderlist.fileWriter1();*/
-
+		String sentence  = utility.fileReaderfororderlist();
+		String line = sentence.trim();
+		String array[] = line.split("\\s+");
+		for (int i = 0; i < array.length; i++) {
+			sortorderlist.add(Integer.parseInt(array[i]));
+		}
+		System.out.println("Enter the searchNumber ");
+		int searchNumber = utility.inputInteger();
+		boolean status =sortorderlist.search(searchNumber);
+		LinkedList1<Integer> sortlist = new LinkedList1<Integer>();
+		sortlist = utility.addRemoveorderlist(status,searchNumber,sortorderlist);
+		int linkedlistarray[]=new int[sortlist.length()];
+		linkedlistarray =utility.sort(sortlist);
+		int sortlinkedarray[] = new int[linkedlistarray.length];
+		sortlinkedarray =utility.sortasc(linkedlistarray);
+		System.out.println("The sorted elements are");
+		for(int i=0;i<sortlinkedarray.length;i++)
+		{
+			System.out.println(sortlinkedarray[i]);
+		}
+		
+		utility.fileWriterorder(sortlinkedarray);
+			
 	}
 }
