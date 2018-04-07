@@ -1,10 +1,25 @@
+/******************************************************************************
+  
+ *  Purpose: Visitor pattern is used when we have to perform an operation on a
+ *  group of similar kind of Objects. With the help of visitor pattern, we can 
+ *  move the operational logic from the objects to another class.
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   12-03-2018
+ *
+ ******************************************************************************/
+
+
+
+
 package com.bridgeit.behaviourdesignpattern;
 
-import com.bridgeit.utility1.Book;
-import com.bridgeit.utility1.Fruit;
-import com.bridgeit.utility1.ItemElement;
-import com.bridgeit.utility1.ShoppingCardVisitor;
-import com.bridgeit.utility1.ShoppingCartVisitorImpl;
+import com.bridgeit.utilitydesignpattern.Book;
+import com.bridgeit.utilitydesignpattern.Fruit;
+import com.bridgeit.utilitydesignpattern.ItemElement;
+import com.bridgeit.utilitydesignpattern.ShoppingCardVisitor;
+import com.bridgeit.utilitydesignpattern.ShoppingCartVisitorImpl;
 
 public class ShoppingCardClient 
 {

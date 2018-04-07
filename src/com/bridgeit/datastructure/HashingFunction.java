@@ -20,7 +20,7 @@ public class HashingFunction {
 		Utility utility = new Utility();
 		LinkedList1<String> listofnumber = new LinkedList1<String>();
 	
-		String sentence = Utility.hashmapFileReader();
+		String sentence = utility.hashmapFileReader();
 		String line = sentence.trim();
 		String[] strarray = line.split("\\s+");
 		int n = strarray.length;
@@ -33,13 +33,13 @@ public class HashingFunction {
 		System.out.println("The sorted array are");
 		Integer[] sortarray=new Integer[strarray.length];
 		sortarray =utility.sortArray(arr, n);
-		Utility.put(sortarray);
+		utility.put(sortarray);
 		System.out.println("Enter a number to be search");
 		String searchnumber = utility.inputString();
 		boolean status = listofnumber.search(searchnumber);
-		Utility.addRemove2(status, searchnumber, listofnumber, line);
+		Utility.addRemoveSlotWise(status, searchnumber, listofnumber, line);
 		listofnumber.display();
-		Utility.readFile1(listofnumber, searchnumber, status, line);
+		utility.writeFileHashmap(listofnumber, searchnumber, status, line);
 
 	}
 }

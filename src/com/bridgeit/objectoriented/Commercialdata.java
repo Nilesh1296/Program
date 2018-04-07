@@ -37,15 +37,15 @@ public class Commercialdata {
 			switch (choice) {
 			case 1:
 
-				Utility.addtoFile("Stockaccount.json");
+				utility.addtoFile("Stockaccount.json");
 				break;
 
 			case 2:
-				Utility.deletetoFile("Stockaccount.json");
+				utility.deletetoFile("Stockaccount.json");
 				break;
 
 			case 3:
-				int count1 = Utility.numberofrecordofpersons("Stockaccount.json");
+				int count1 = utility.numberofrecordofpersons("Stockaccount.json");
 				System.out.println("The number of account is"+count1);
 
 				break;
@@ -54,16 +54,16 @@ public class Commercialdata {
 				System.out.println("enter the number of share to sell");
 				long shareToSell = utility.inputLong();
 
-				Utility.sell(shareToSell);
+				utility.sell(shareToSell);
 				break;
 			case 5:
 				System.out.println("enter the number of share to buy");
 				long sharetoBuy = utility.inputLong();
-				Utility.buy(sharetoBuy);
+				utility.buy(sharetoBuy);
 				break;
 			case 6:
 				System.out.println("display the json file");
-				Utility.displaynoshare("Stockaccount.json");
+				utility.displaynoshare("Stockaccount.json");
 				break;
 			}
 

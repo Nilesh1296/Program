@@ -5,7 +5,7 @@
 			"apointment": 1,
 			"speciliaz": "heart",
 			"id": 1,
-			"nameofdoctor": "nilesh"
+			"nameofdoctor": "nileshsingh"
 		},
 		{
 			"availabilty": "pm",
@@ -19,7 +19,7 @@
 			"apointment": 3,
 			"speciliaz": "cardio",
 			"id": 3,
-			"nameofdoctor": "nhytr"
+			"nameofdoctor": "nilesh"
 		},
 		{
 			"availabilty": "pm",
@@ -33,21 +33,28 @@
 			"apointment": 1,
 			"speciliaz": "tumor",
 			"id": 12,
-			"nameofdoctor": "dert"
+			"nameofdoctor": "prajapati"
 		},
 		{
 			"availabilty": "pm",
 			"apointment": 4,
 			"speciliaz": "heart",
 			"id": 1,
-			"nameofdoctor": "rest"
+			"nameofdoctor": "shreya"
 		},
 		{
 			"availabilty": "1",
 			"apointment": 2,
 			"speciliaz": "surgeon",
 			"id": 78,
-			"nameofdoctor": "huyt"
+			"nameofdoctor": "pragati"
+		},
+		{
+			"availabilty": "pm",
+			"apointment": 1,
+			"speciliaz": "surgeon",
+			"id": 100,
+			"nameofdoctor": "john"
 		}
 	]
 }

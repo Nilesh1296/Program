@@ -1,3 +1,19 @@
+/******************************************************************************
+  
+ *  Purpose:Here we have created Serialized and singletion  we need to implement
+ *  Serializable interface in Singleton class so  that we can store it’s state 
+ *  in file system and retrieve it at later point of time
+ *   
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   12-03-2018
+ *
+ ******************************************************************************/
+
+
+
+
+
 package com.bridgeit.creationaldesignpatern;
 
 import java.io.Serializable;

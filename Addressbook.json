@@ -9,12 +9,21 @@
 		"Fname": "nilesh"
 	},
 	{
-		"Zip": 152,
-		"Address": "mumbai",
-		"Lname": "yadav",
+		"Zip": 125,
+		"Address": "aderw",
+		"Lname": "sibgtr",
 		"State": "maharastra",
-		"PhoneNumber": "47896",
-		"City": "nilu",
-		"Fname": "durga"
+		"PhoneNumber": 45896,
+		"City": "mumbai",
+		"Fname": "niuyt"
+	},
+	{
+		"Zip": 123,
+		"Address": "hawara",
+		"Lname": "singh",
+		"State": "maharastra",
+		"PhoneNumber": 4586,
+		"City": "mumbai",
+		"Fname": "aaa"
 	}
 ]

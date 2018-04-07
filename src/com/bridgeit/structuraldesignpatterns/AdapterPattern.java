@@ -1,9 +1,22 @@
+/******************************************************************************
+  
+ *  Purpose:  Adapter design pattern is mobile charger. Mobile battery needs 3 
+ *  volts to charge but the normal socket produces either 120V (US) or 240V 
+ *  (India). So the mobile charger works as an adapter between mobile charging 
+ *  socket and the wall socket. 
+ *    
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   12-03-2018
+ *
+ ******************************************************************************/
+
 package com.bridgeit.structuraldesignpatterns;
 
-import com.bridgeit.utility1.SocketAdapter;
-import com.bridgeit.utility1.SocketClassAdapterImpl;
-import com.bridgeit.utility1.SocketObjectAdapterImpl;
-import com.bridgeit.utility1.Volt;
+import com.bridgeit.utilitydesignpattern.SocketAdapter;
+import com.bridgeit.utilitydesignpattern.SocketClassAdapterImpl;
+import com.bridgeit.utilitydesignpattern.SocketObjectAdapterImpl;
+import com.bridgeit.utilitydesignpattern.Volt;
 
 public class AdapterPattern
 {

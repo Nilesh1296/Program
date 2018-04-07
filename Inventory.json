@@ -1,0 +1,43 @@
+{
+	"pulse": [
+		{
+			"name": "gujrati",
+			"weight": 15.0,
+			"price": 12.0
+		},
+		{
+			"name": "mp",
+			"weight": 15.0,
+			"price": 16.0
+		}
+	],
+	"wheat": [
+		{
+			"name": "fre",
+			"weight": 15.0,
+			"price": 12.0
+		},
+		{
+			"name": "sb",
+			"weight": 14.0,
+			"price": 15.0
+		}
+	],
+	"rice": [
+		{
+			"name": "bamati",
+			"weight": 45.0,
+			"price": 14.0
+		},
+		{
+			"name": "nil",
+			"weight": 78.0,
+			"price": 15.0
+		},
+		{
+			"name": "tundal",
+			"weight": 45.0,
+			"price": 12.0
+		}
+	]
+}

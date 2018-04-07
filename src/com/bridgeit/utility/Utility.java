@@ -676,7 +676,7 @@ public class Utility {
 		int k = 0;
 
 		while (i <= mid || j <= high) {
-			if (i > mid)
+			if (i > mid)                                            
 				Temp[k++] = subset[j++];
 			else if (j > high)
 				Temp[k++] = subset[i++];
@@ -1324,7 +1324,7 @@ public class Utility {
 	 * @return
 	 * @throws IOException
 	 */
-	public static LinkedList1<String> addRemove2(boolean status, String searchWord, LinkedList1<String> linkedhashmap, String line)
+	public static LinkedList1<String> addRemoveSlotWise(boolean status, String searchWord, LinkedList1<String> linkedhashmap, String line)
 			throws IOException {
 		FileWriter writer = new FileWriter("Hashing.text", false);
 		BufferedWriter write = new BufferedWriter(writer);
@@ -1449,7 +1449,7 @@ public class Utility {
 	 * @param status
 	 * @param line
 	 */
-	public static void readFile1(LinkedList1<String> listofnumber , String searchWord, boolean status, String line) {
+	public void writeFileHashmap(LinkedList1<String> listofnumber , String searchWord, boolean status, String line) {
 
 		try {
 			FileWriter writer = new FileWriter("Hashing.text", false);
@@ -1496,7 +1496,7 @@ public class Utility {
 	/**
 	 * @param arr
 	 */
-	public static void put(Integer[] arr) {
+	public void put(Integer[] arr) {
 		HashMap<Integer, LinkedList<Integer>> map = new HashMap<>();
 		LinkedList<Integer> l1 = new LinkedList<Integer>();
 		LinkedList<Integer> l2 = new LinkedList<Integer>();
@@ -1577,21 +1577,22 @@ public class Utility {
 	}
 
 	/**
+	 * This method tell us no of possible arrangements of node N
 	 * @param node
 	 */
-	public static void NumberOfBinarySearchTree(int node) {
-		long fact1 = 0, fact2 = 0, fact3 = 0, counter = 0;
+	public  void NumberOfBinarySearchTree(int node) {
+		long fact1 = 0, fact2 = 0, fact3 = 0, Numberofarrangements = 0;
 
 		fact1 = factorial((2) * (node));
 		fact2 = factorial((node + 1));
 		fact3 = factorial(node);
 
 		try {
-			counter = fact1 / (fact2 * fact3);
+			Numberofarrangements = fact1 / (fact2 * fact3);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("The number of possible arrangement is "+counter);
+		System.out.println("The number of possible arrangement is "+Numberofarrangements);
 	}
 
 	/**
@@ -1610,6 +1611,7 @@ public class Utility {
 
 	/**
 	 * @param n
+	 * @param This program is used to display prime numbers between 0 to 1000
 	 */
 	public static void dispPrimeAngram(int n) {
 		int num = n;
@@ -2134,7 +2136,7 @@ public class Utility {
 	 * @param months
 	 * @param year
 	 */
-	public <T> void store(int daycode, int months,int year) {
+	public <T> void storeDay(int daycode, int months,int year) {
 		LinkedList1<Integer> weeklist = new LinkedList1<Integer>();
 		String month[] = { " ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 		int day[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -2295,18 +2297,19 @@ public class Utility {
 		for (int i = 0; i < listanagram.length(); i++) {
 			stack.push(listanagram.dataAtPosition(i));
 		}
-		int[] array = new int[stack.size()];
+		int[] arrayofanagram = new int[stack.size()];
 		for (int i = 0; i < stack.size(); i++) {
-			array[i] =  (int) stack.get(i);
+			arrayofanagram[i] =  (int) stack.get(i);
 		}
-		for (int i = array.length - 1; i >= 0; i--) {
-			System.out.println(array[i]);
+		for (int i = arrayofanagram.length - 1; i >= 0; i--) {
+			System.out.println(arrayofanagram[i]);
 		}
 
 	}
 
 	/**
 	 * @param expression
+	 * @param This method check the number of opening closing brackets is balanced or not
 	 */
 	public static <T> void checkArithmeticExpression(String expression) {
 		char chararray[] = expression.toCharArray();
@@ -2331,7 +2334,7 @@ public class Utility {
 	 * @param month
 	 * @param year
 	 */
-	public  void printmonthofcalendar(int month, int year)
+	public  void printMonthOfCalendar(int month, int year)
 
 	{
 		String[] months = { "", "January", "February", "March", "April", "May", "June", "July", "August", "September",
@@ -2365,7 +2368,6 @@ public class Utility {
 				if (list.dataAtPosition(i) != null) {
 					if (Utility.anagramm((Integer) list.dataAtPosition(i), (Integer) list.dataAtPosition(j))) {
 						queue.enqueue(((list.dataAtPosition(i)))); 
-                        System.out.print(" ");
                         queue.enqueue(((list.dataAtPosition(j)))); 
 
 					}
@@ -2382,62 +2384,62 @@ public class Utility {
 	 * @param num
 	 * @param n
 	 */
-	public void printPrime2D(int num,int n)
+	public void printPrime2D(int number,int n)
 	{
 		Utility utility =new Utility();
 		boolean status;
 		int i=1;
-		for(num=2;num<=n;num++)
+		for(number=2;number<=n;number++)
 		{
-			status=utility.primeNum(num);
+			status=utility.primeNum(number);
 			if(status)
 			{
-				if(num>100 && i==1)
+				if(number>100 && i==1)
 				{
 					System.out.println();
 					i=0;
 				}
-				if(num>200 && i==0)
+				if(number>200 && i==0)
 				{
 					System.out.println();
 					i=2;
 				}
-				if(num>300 && i==2)
+				if(number>300 && i==2)
 				{
 					System.out.println();
 					i=3;
 				}
-				if(num>400 && i==3)
+				if(number>400 && i==3)
 				{
 					System.out.println();
 					i=4;
 				}
-				if(num>500 && i==4)
+				if(number>500 && i==4)
 				{
 					System.out.println();
 					i=5;
 				}
-				if(num>600 && i==5)
+				if(number>600 && i==5)
 				{
 					System.out.println();
 					i=6;
 				}
-				if(num>700 && i==6)
+				if(number>700 && i==6)
 				{
 					System.out.println();
 					i=7;
 				}
-				if(num>800 && i==7)
+				if(number>800 && i==7)
 				{
 					System.out.println();
 					i=8;
 				}
-				if(num>900 && i==8)
+				if(number>900 && i==8)
 				{
 					System.out.println();
 					i=9;
 				}
-				System.out.print(num+" ");
+				System.out.print(number+" ");
 			}
 		}
 		System.out.println();
@@ -2554,13 +2556,12 @@ public class Utility {
 	 * @return
 	 * @throws IOException
 	 */
-	public static String hashmapFileReader() throws IOException
+	public  String hashmapFileReader() throws IOException
 	{
 		FileReader fileReader = new FileReader("Hashing.text");
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
 		String sentence = bufferedReader.readLine();
 		System.out.println(sentence);
-		;
 		bufferedReader.close();
 		return sentence;
 	}
@@ -2579,7 +2580,7 @@ public class Utility {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static void addtoFile(String filename) throws FileNotFoundException, IOException, ParseException {
+	public  void addtoFile(String filename) throws FileNotFoundException, IOException, ParseException {
 		Utility utility = new Utility();
 		JSONObject jsonObject = readFromFile("Stockaccount.json");
 		JSONArray jsonArray = (JSONArray) jsonObject.get("stock");
@@ -2610,7 +2611,7 @@ public class Utility {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static void deletetoFile(String filename) throws FileNotFoundException, IOException, ParseException {
+	public  void deletetoFile(String filename) throws FileNotFoundException, IOException, ParseException {
 		Utility utility = new Utility();
 		JSONObject jsonObject = readFromFile("Stockaccount.json");
 		JSONArray jsonArray = (JSONArray) jsonObject.get("stock");
@@ -2643,7 +2644,7 @@ public class Utility {
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unused")
-	public static int numberofrecordofpersons(String filePath) throws IOException, ParseException {
+	public  int numberofrecordofpersons(String filePath) throws IOException, ParseException {
 		int count = 0;
 		JSONObject jsonObject = readFromFile("Stockaccount.json");
 		JSONArray jsonArray = (JSONArray) jsonObject.get("stock");
@@ -2665,7 +2666,7 @@ public class Utility {
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked")
-	public static void sell(long shareToSell) throws IOException, ParseException {
+	public  void sell(long shareToSell) throws IOException, ParseException {
 	
 		Utility utility = new Utility();
 		JSONObject jsonObject2 = readFromFile("Stockaccount.json");
@@ -2707,7 +2708,7 @@ public class Utility {
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked")
-	public static void buy(long sharetoBuy) throws FileNotFoundException, IOException, ParseException
+	public  void buy(long sharetoBuy) throws FileNotFoundException, IOException, ParseException
 	{
 		Utility utility = new Utility();
 		JSONObject jsonObject2 = readFromFile("Stockaccount.json");
@@ -3255,7 +3256,7 @@ public class Utility {
 				{
 					System.out.print(" patient name :"+newJsonObjectSearch.get("nameofpatient"));
 					System.out.print("Id  :"+newJsonObjectSearch.get("id"));
-					System.out.println("mobilenumber :"+newJsonObjectSearch.get("mobilenumber"));
+					System.out.print("mobilenumber :"+newJsonObjectSearch.get("mobilenumber"));
 					System.out.println("age :"+newJsonObjectSearch.get("age"));
 					check =false;
 					break;

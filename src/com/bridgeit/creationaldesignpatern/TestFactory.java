@@ -1,7 +1,25 @@
+/******************************************************************************
+  
+ *   Purpose: Super class in factory design pattern can be an interface, abstract
+ *   class or a normal java class. For our factory design pattern example, we 
+ *   have abstract super class with overridden toString() method for testing 
+ *   purpose.
+
+
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   12-03-2018
+ *
+ ******************************************************************************/
+
+
+
+
 package com.bridgeit.creationaldesignpatern;
 
-import com.bridgeit.utility1.Computer;
-import com.bridgeit.utility1.ComputerFactory;
+import com.bridgeit.utilitydesignpattern.Computer;
+import com.bridgeit.utilitydesignpattern.ComputerFactory;
 
 public class TestFactory
 {

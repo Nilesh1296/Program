@@ -26,7 +26,7 @@ public class WeekCalender {
 		months = utility.inputInteger();
 		Utility.leapYear(year);
 		int daycode = utility.dayCode(year, months);
-		utility.store(daycode, months,year);
+		utility.storeDay(daycode, months,year);
 		System.out.println();
 
 	}

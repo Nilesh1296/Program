@@ -2,7 +2,7 @@ package com.bridgeit.creationaldesignpatern;
 
 import java.util.List;
 
-import com.bridgeit.utility1.Employees;
+import com.bridgeit.utilitydesignpattern.Employees;
 
 public class PrototypePatternTest
 {

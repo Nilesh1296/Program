@@ -12,7 +12,7 @@ package com.bridgeit.datastructure;
 
 import com.bridgeit.utility.Utility;
 
-public class Calendar1 {
+public class Calendar {
 
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -20,7 +20,7 @@ public class Calendar1 {
 		int month = utility.inputInteger();
 		System.out.println("Enter the year");
 		int year = utility.inputInteger();
-		utility.printmonthofcalendar(month, year);
+		utility.printMonthOfCalendar(month, year);
 	}
 	}
 

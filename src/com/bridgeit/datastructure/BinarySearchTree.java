@@ -19,7 +19,7 @@ public class BinarySearchTree
   {
 	  Utility utility = new Utility();
 		System.out.println("Enter the number of node: ");
-		int node = utility.inputInteger();
-		Utility.NumberOfBinarySearchTree(node);
+		int numberofnode = utility.inputInteger();
+		utility.NumberOfBinarySearchTree(numberofnode);
   }
 }

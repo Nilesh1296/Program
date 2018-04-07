@@ -11,12 +11,8 @@ class Node<T>
 	{
 		this.data = (T) data1;
 	}
-	 Node(int value, char arr) 
-	{
-		  date=value;
-		  day1=arr;
-		  ref=null;	
-	}
+	
+	
 }
 public class LinkedList1<T>
 {
@@ -174,12 +170,7 @@ public class LinkedList1<T>
 		}
 	
 	
-	 public void insert(int value,char arr)
-	  {
-		Node<T> node = new Node<T>(value,arr);
-		node.ref=first;
-		first=node;
-	  }
+	
 
 	 public void sort()
 	 {

@@ -1,1 +1,20 @@
-[{"Company Name":"lt","total":270,"Price":18,"Shares":15},{"Company Name":"wipro","total":240,"Price":16,"Shares":15}]
+[
+	{
+		"Company Name": "tcs",
+		"total": 210,
+		"Price": 14,
+		"Shares": 15
+	},
+	{
+		"Company Name": "wipr",
+		"total": 208,
+		"Price": 13,
+		"Shares": 16
+	},
+	{
+		"Company Name": "lt",
+		"total": 216,
+		"Price": 12,
+		"Shares": 18
+	}
+]

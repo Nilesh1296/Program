@@ -89,8 +89,7 @@ public class AddressbookImpl
 	/**
 	 * @param filePath
 	 */
-	@SuppressWarnings("unchecked")
-	public void edit(String filePath) {
+		public void edit(String filePath) {
 
 		JSONArray jsonArrayaddressbook = new JSONArray();
 		jsonArrayaddressbook = jsonFileReader("Addressbook.json");
@@ -104,10 +103,10 @@ public class AddressbookImpl
 		while (iterator.hasNext()) {
 			jsonObjectaddressbook = (JSONObject) iterator.next();
 
-			if (person.equals((String) jsonObjectaddressbook.get("Fname"))) {
-				@SuppressWarnings("unchecked")
+			if (person.equals(jsonObjectaddressbook.get("Fname"))) {
+				
 				Set<String> keys = jsonObjectaddressbook.keySet();
-				String keyArray[] = (String[]) keys.toArray(new String[keys.size()]);
+				String keyArray[] = keys.toArray(new String[keys.size()]);
 				for (int i = 0; i < keyArray.length; i++) {
 					System.out.println("Enter " + (i + 1) + " to "
 							+ keyArray[i]);

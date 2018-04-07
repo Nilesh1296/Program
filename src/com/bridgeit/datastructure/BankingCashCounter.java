@@ -19,7 +19,7 @@ public class BankingCashCounter {
 
 		Utility utility = new Utility();
 		QueueImpl<Integer> queue = new QueueImpl<Integer>();
-		int amount = 50000;
+		int amountinbank = 50000;
 		int choice1;
 		do {
 			System.out.println("1 for adding into queue");
@@ -42,38 +42,32 @@ public class BankingCashCounter {
 
 					System.out.println("Enter the deposited amount");
 					int depositedamount = utility.inputInteger();
-					amount = amount + depositedamount;
-					System.out.println("The total deposited amount is" + amount);
-				    queue.delete();
+					amountinbank = amountinbank + depositedamount;
+					System.out.println("The total deposited amount is" + amountinbank);
+					queue.delete();
 				} else {
 					System.out.println("Enter the person in the queue");
 				}
 				break;
 
 			case 3:
-				if (queue.size() != 0) 
-				{
+				if (queue.size() != 0) {
 
 					System.out.println("Enter the withdraw amount");
 					int withdrawamount = utility.inputInteger();
-					if (withdrawamount < amount) 
-					{
-						amount = amount - withdrawamount;
-						System.out.println("The total amount in bank is: " + amount);
+					if (withdrawamount < amountinbank) {
+						amountinbank = amountinbank - withdrawamount;
+						System.out.println("The total amount in bank is: " + amountinbank);
 						queue.delete();
 						break;
-					}
-					else
-					{
+					} else {
 						System.out.println("Insufficient balance please first deposit");
 						queue.delete();
 						break;
 					}
+				} else {
+					System.out.println("Enter the person in the queue");
 				}
-				    else
-				      {
-					  System.out.println("Enter the person in the queue");
-				      }
 
 			case 4: {
 				int length = queue.size();

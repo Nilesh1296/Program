@@ -1,18 +1,18 @@
 {
 	"stock": [
 		{
-			"date": "04\/04\/2018",
-			"Shareprice": 16,
-			"noofshare": 55,
-			"time": "14:59:18",
-			"Name": "nilesh"
-		},
-		{
 			"date": "06\/04\/2018",
 			"Shareprice": 13,
-			"noofshare": 7,
+			"noofshare": 15,
 			"time": "16:55:30",
 			"Name": "nilu"
+		},
+		{
+			"date": "07\/04\/2018",
+			"Shareprice": 12,
+			"noofshare": 45,
+			"time": "17:16:35",
+			"Name": "tcs"
 		}
 	]
 }

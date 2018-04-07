@@ -1,4 +1,4 @@
-package com.bridgeit.utility1;
+package com.bridgeit.utilitydesignpattern;
 
 //Using inheritance for adapter pattern
 public class SocketClassAdapterImpl extends Socket implements SocketAdapter{
