@@ -21,7 +21,7 @@ public class Sort implements Comparator<Object>
 
 	public Sort(String str) {
 		this.str = str;
-		;
+		
 	}
 
 	public int compare(Object o1, Object o2) {
