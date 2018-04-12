@@ -1,5 +1,4 @@
 package Clinicmanagement;
-
 public class Doctor 
 {
  private String doctorname;
