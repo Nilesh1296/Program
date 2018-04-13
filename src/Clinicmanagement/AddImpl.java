@@ -4,6 +4,7 @@ import java.io.File;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,8 +24,6 @@ public class AddImpl implements Add {
 	private List<Doctor> listofdoctor = new LinkedList<Doctor>();
 	private List<Patient> listofpatient = new LinkedList<Patient>();
 	private List<Apointment> listofapointment = new LinkedList<Apointment>();
-	// String filepathforapointment =
-	// "/home/bridgeit/Documents/Apointmentfiles/apointment.json";
 	Doctor doctor;
 	Patient patient;
 
@@ -90,7 +89,6 @@ public class AddImpl implements Add {
 
 		listofpatient.add(patient);
 
-		ObjectMapper mapper = new ObjectMapper();
 		mapper.writeValue(new File("/home/bridgeit/Documents/Patientfiles/" + filename + ".json"), listofpatient);
 	}
 
@@ -100,40 +98,46 @@ public class AddImpl implements Add {
 		Patient apppatient;
 		display.printDoctorReport();
 		display.printPatientReport();
-		System.out.println("Enter the doctor name");
-		String doctorname = scanner.next();
-		System.out.println("Enter the Patient name");
-		String patientname = scanner.next();
-		boolean statusofdoctor = searchbydoctorname(doctorname);
-		boolean statusofpatient = searchbypatientname(patientname);
-		if (statusofdoctor && statusofpatient) {
-			
-			appdoctor = search.searchDoctorByName();
-			apppatient = search.searchPatientByName();
-			appdoctor.getDoctorname();
-			appdoctor.getApointment();
-			apppatient.getMobilenumber();
-			apppatient.getPatientname();
-			if (appdoctor.getApointment() > 5) {
-				System.out.println("Apointment cannot ne done");
-			} else {
-				newFileForAppointment();
-				System.out.println("Enter the filename");
-				String filenameforapointment = scanner.next();
-				String filepathforapointment = "/home/bridgeit/Documents/Apointmentfiles/" + filenameforapointment
-						+ ".json";
-				listofapointment = utility.fetchJsonFromFile(filepathforapointment, Apointment[].class);
-				Apointment appointment = new Apointment(appdoctor.getDoctorname(), appdoctor.getApointment(),
-						apppatient.getPatientname(), apppatient.getMobilenumber());
-				listofapointment.add(appointment);
-				System.out.println(listofapointment);
-				System.out.println("Enter the file path");
-				mapper.writeValue(new File("/home/bridgeit/Documents/Apointmentfiles/"+scanner.next()+".json"), listofapointment);
+		appdoctor = search.searchDoctorByName();
+		apppatient = search.searchPatientByName();
+		appdoctor.getDoctorname();
+		appdoctor.getApointment();
+		apppatient.getMobilenumber();
+		apppatient.getPatientname();
+		if (appdoctor.getApointment() > 5) {
+			System.out.println("Apointment cannot ne done");
+		} else {
+			newFileForAppointment();
+			System.out.println("Enter the filename");
+			String filenameforapointment = scanner.next();
+			String filepathforapointment = "/home/bridgeit/Documents/Apointmentfiles/" + filenameforapointment
+					+ ".json";
+			listofapointment = utility.fetchJsonFromFile(filepathforapointment, Apointment[].class);
+			Apointment appointment = new Apointment(appdoctor.getDoctorname(), appdoctor.getApointment(),
+					apppatient.getPatientname(), apppatient.getMobilenumber());
+			listofapointment.add(appointment);
+			System.out.println(listofapointment);
+			mapper.writeValue(new File("/home/bridgeit/Documents/Apointmentfiles/" + filenameforapointment + ".json"),
+					listofapointment);
+			long numberofpatients = appdoctor.getApointment() + 1;
+			appdoctor.setApointment(numberofpatients);
+			System.out.println("Enter the filename");
+			String filenamefordoctor = scanner.next();
+			String filepathfordoctor = "/home/bridgeit/Documents/Doctorfiles/" + filenamefordoctor + ".json";
+			listofdoctor = utility.fetchJsonFromFile(filepathfordoctor, Doctor[].class);
+			System.out.println("Enter the doctor name which apointment want to increase");
+			String doctorname = scanner.next();
+			for (int i = 0; i < listofdoctor.size(); i++) {
 
+				Doctor doctor = listofdoctor.get(i);
+				if (doctor.getDoctorname().equals(doctorname)) {
+					listofdoctor.set(i, appdoctor);
+					System.out.println(listofdoctor);
+					mapper.writeValue(new File("/home/bridgeit/Documents/Doctorfiles/doctor.json"), listofdoctor);
+					break;
+				}
 			}
 
-		} else {
-			System.out.println("The given doctorname or patient name is not present in the system ");
 		}
 
 	}

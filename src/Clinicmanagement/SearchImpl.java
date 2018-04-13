@@ -23,7 +23,7 @@ public class SearchImpl implements Search {
 	
 		System.out.println("Enter the file name from which you want to fetch data");
 		String filename = scanner.next();
-		String filepath = "/home/bridgeit/Documents/Doctorfiles/" + filename + ".json";
+		String filepath = "/home/bridgeit/Documents/Doctorfiles/" + filename +".json";
 		
 		listofdoctor = utility.fetchJsonFromFile(filepath, Doctor[].class);
 		
@@ -50,6 +50,7 @@ public class SearchImpl implements Search {
 				System.out.println(" Doctor apointment is "+doctor.getApointment());
 				
 			}
+			
 			
 		}
 		return tempdoctor;

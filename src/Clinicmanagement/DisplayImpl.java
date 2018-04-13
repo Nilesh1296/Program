@@ -46,7 +46,7 @@ public class DisplayImpl implements Display {
 		System.out.println("Enter the filename in which from want to get data");
 		String filename = scanner.next();
 		String filepath = "/home/bridgeit/Documents/Patientfiles/" + filename + ".json";
-        listofpatient =utility.fetchJsonFromFile(filepath,Patient[].class);
+        listofpatient =utility.fetchJsonFromFile( filepath,Patient[].class);
         for (int i = 0; i < listofpatient.size(); i++) {
 			System.out.print("Name of Patient  " + listofpatient.get(i).getPatientname());
 			System.out.print("  Id of Patient   " + listofpatient.get(i).getPatientid());

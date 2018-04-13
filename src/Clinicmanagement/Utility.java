@@ -14,7 +14,7 @@ public class Utility
 {
 	List<Doctor> listofdoctor  = new LinkedList<Doctor>();
 	List<Patient> listofpatient = new LinkedList<Patient>();
-	
+	List<Apointment> listofapointment = new LinkedList<Apointment>();
 	public <T> List<T> fetchJsonFromFile(String filepath, Class<T[]> clazz)
 			throws JsonParseException, JsonMappingException, IOException {
 
@@ -22,7 +22,7 @@ public class Utility
 
 		File file = new File(filepath);
 		List<T> list = new LinkedList<T>(Arrays.asList(objectmapper.readValue(file, clazz)));
-
+         
 		return list;
 
 	}

@@ -37,6 +37,10 @@ public String toString() {
 	return "Apointment [doctorname=" + doctorname + ", doctorapointments=" + doctorapointments + ", patientname="
 			+ patientname + ", contactnumber=" + contactnumber + "]";
 }
+public Apointment() {
+	
+}
+
 public Apointment(String doctorname, long doctorapointments, String patientname, long contactnumber) {
 	super();
 	this.doctorname = doctorname;
