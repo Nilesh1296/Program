@@ -8,25 +8,34 @@
 
 
   <!-- Angular Files -->
-
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/angular/angular.js" charset="utf-8"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
-  <script src="bower_components/angular-messages/angular-messages.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="Css/style.css" charset="utf-8"/>
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-  <script src="bower_components/angular-material/angular-material.min.js" charset="utf-8"></script>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.min.js" charset="utf-8"></script>
   <script src="bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
   <script src="bower_components/angular-aria/angular-aria.min.js" charset="utf-8"></script>
+  <script src="bower_components/angular-material/angular-material.min.js" charset="utf-8"></script>
+  <script src="bower_components/angular-filter/dist/angular-filter.min.js" charset="utf-8"></script>
+
+
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
+
+<!-- config -->
   <script src="app.js" charset="utf-8"></script>
 
   <!--controller files -->
-  <script src ="Controller/loginController.js"></script>
-  <script src ="Templates/login.html"></script>
+  <script src="Controller/loginController.js"></script>
+  <script src="Controller/homeController.js"></script>
+  <script src="Controller/navbar.js"></script>
+  <script src="Controller/sidebar.js"></script>
+  <script src="products.json"></script>
+  <script src="Services/Jsonreader.js"></script>
+
+
   </head>
   <body ng-app="myApp">
-    
-<ui-view>
-</ui-view>
-</body>
-
+      <ui-view>
+      </ui-view>
+    </body>
 </html>

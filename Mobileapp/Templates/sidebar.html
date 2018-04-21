@@ -1,0 +1,57 @@
+ <div id = "sideNavContainer" layout = "row" ng-cloak>
+   <md-sidenav class="md-sidenav-left" md-component-id="left">
+   <md-toolbar class="md-theme-indigo">
+   <h1 class="md-toolbar-tools">Single Page Mobile App</h1>
+    </md-toolbar>
+    <md-content flex layout-padding>
+      <div layout="row" layout-wrap>
+        <div>
+          <fieldset class = "standard">
+            <legend>Manufacturer</legend>
+
+            <div ng-repeat="x in JsonRecord | unique:'specs.manufacturer'|orderBy:'specs.manufacturer'">
+              <md-checkbox ng-click="toggle('manufacturer',x.specs.manufacturer)">{{x.specs.manufacturer}}
+              </md-checkbox>
+            </div>
+              </fieldset>
+            </div>
+          </div>
+
+          <div layout="row" layout-wrap>
+            <div>
+              <fieldset class = "standard">
+                <legend>Storage</legend>
+                <div ng-repeat="x in JsonRecord ">
+                  <md-checkbox ng-click="toggle('storage',x.specs.storage)">{{x.specs.storage}}
+                  </md-checkbox>
+                </div>
+                  </fieldset>
+                </div>
+              </div>
+
+              <div layout="row" layout-wrap>
+                <div>
+                  <fieldset class = "standard">
+                    <legend>OS</legend>
+                    <div ng-repeat="x in JsonRecord ">
+                      <md-checkbox ng-click="toggle('os',x.specs.os)">{{x.specs.os}}
+                      </md-checkbox>
+                    </div>
+                      </fieldset>
+                    </div>
+                  </div>
+
+                  <div layout="row" layout-wrap>
+                    <div>
+                      <fieldset class = "standard">
+                        <legend>Camera</legend>
+                        <div ng-repeat="x in JsonRecord ">
+                          <md-checkbox ng-click="toggle('camera',x.specs.camera)">{{x.specs.camera}}
+                          </md-checkbox>
+                        </div>
+                          </fieldset>
+                        </div>
+                      </div>
+</md-content>
+    </md-sidenav>
+  </div>

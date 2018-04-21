@@ -14,8 +14,8 @@ routerApp.config(function($stateProvider,$urlRouterProvider)
 
        .state('home', {
           url:'/home',
-          templateUrl :'templates/home.html',
-          controller :'loginhome'
+          templateUrl :'Templates/home.html',
+          controller :'homeController'
 
         });
 
