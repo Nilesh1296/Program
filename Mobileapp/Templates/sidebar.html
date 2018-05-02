@@ -1,7 +1,7 @@
- <div id = "sideNavContainer" layout = "row" ng-cloak>
-   <md-sidenav class="md-sidenav-left" md-component-id="left">
+ <div id ="sideNavContainer" layout="column" >
+   <md-sidenav class="md-sidenav-left md-component-id='left'" class="md-sidenav-right md-whiteframe-4dp" md-disable-backdrop id="rightSideNav" md-component-id="left" style="width:'200px'; position: 'fixed';">
    <md-toolbar class="md-theme-indigo">
-   <h1 class="md-toolbar-tools">Single Page Mobile App</h1>
+
     </md-toolbar>
     <md-content flex layout-padding>
       <div layout="row" layout-wrap>
@@ -9,7 +9,7 @@
           <fieldset class = "standard">
             <legend>Manufacturer</legend>
 
-            <div ng-repeat="x in JsonRecord | unique:'specs.manufacturer'|orderBy:'specs.manufacturer'">
+            <div ng-repeat="x in JsonRecord | uniquefilter:'manufacturer'">
               <md-checkbox ng-click="toggle('manufacturer',x.specs.manufacturer)">{{x.specs.manufacturer}}
               </md-checkbox>
             </div>
@@ -21,7 +21,7 @@
             <div>
               <fieldset class = "standard">
                 <legend>Storage</legend>
-                <div ng-repeat="x in JsonRecord ">
+                <div ng-repeat="x in JsonRecord| uniquefilter :'storage' ">
                   <md-checkbox ng-click="toggle('storage',x.specs.storage)">{{x.specs.storage}}
                   </md-checkbox>
                 </div>
@@ -33,7 +33,7 @@
                 <div>
                   <fieldset class = "standard">
                     <legend>OS</legend>
-                    <div ng-repeat="x in JsonRecord ">
+                    <div ng-repeat="x in JsonRecord | uniquefilter:'os' ">
                       <md-checkbox ng-click="toggle('os',x.specs.os)">{{x.specs.os}}
                       </md-checkbox>
                     </div>
@@ -45,13 +45,25 @@
                     <div>
                       <fieldset class = "standard">
                         <legend>Camera</legend>
-                        <div ng-repeat="x in JsonRecord ">
+                        <div ng-repeat="x in JsonRecord|uniquefilter:'camera'">
                           <md-checkbox ng-click="toggle('camera',x.specs.camera)">{{x.specs.camera}}
                           </md-checkbox>
                         </div>
-                          </fieldset>
-                        </div>
-                      </div>
+                        </fieldset>
+                    </div>
+                  </div>
+                  <div>
+                    <md-button ng-click="toggleSidenav()" class="md-accent">
+            Close this Sidenav
+          </md-button>
+
+                  </div>
+                  <div>
+                  <md-button ng-click="toggleLeft()" class="md-raised">
+                  Toggle
+                  </md-button>
+                </div>
 </md-content>
     </md-sidenav>
+
   </div>

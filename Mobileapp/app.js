@@ -17,7 +17,13 @@ routerApp.config(function($stateProvider,$urlRouterProvider)
           templateUrl :'Templates/home.html',
           controller :'homeController'
 
-        });
+        })
+
+        .state('home.Dashboard',{
+         url:'/Dashboard',
+         templateUrl:'Templates/Dashboard.html',
+         controller :'dashboardController',
+    });
 
   $urlRouterProvider.otherwise('/login');
 });

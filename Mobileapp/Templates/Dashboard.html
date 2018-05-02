@@ -1,0 +1,28 @@
+
+<div  id="popupContainer" layout-align="center end" layout="row" style="margin-top: 100px;">
+  <div layout="row" layout-wrap>
+     <md-card ng-repeat="itemss in JsonRecord |customFilter:manufacturearray:storagearray:osarray:cameraarray" md-disable-backdrop >
+     <style="height:350px;width:250px;background-color:white;"  flex="50">
+      <md-card-title>
+        <img style="height:300px;width:500px;" img ng-src="{{itemss.image.small}}" class="md-card-image"><br>
+      </md-card-title>
+      <md-card-content layout="column" >
+        <div class="md-toolbar-tools usableTool"> <center>
+         {{itemss.id+""}}{{" "+itemss.name}}
+       </div>
+          <!-- {{"Price : "+itemss.price}} <br> -->
+          {{"OS : "+itemss.specs.os}} <br>
+          {{"Rating : "+itemss.rating}} <br>
+          {{"Storage : "+itemss.specs.storage}} <br>
+          {{"camera : "+itemss.specs.camera}} <br>
+
+          <div>
+      <md-button class="md-accent md-raised" style="height:20px;width:20px" >Book</md-button>
+      <strong align="center" color="red">{{itemss.price}}</strong>
+      <md-button class="md-accent md-raised" style="height:20px;width:20px" ng-click="showAdvanced($event,itemss)" >Open</md-button>
+    </div>
+      </md-card-content>
+    </md-card>
+  </div>
+
+</div>
